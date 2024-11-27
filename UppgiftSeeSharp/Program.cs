@@ -1,4 +1,4 @@
 ﻿using UppgiftSeeSharp.Services;
 
-Menu menu = new Menu();
+Menu menu = new MenuDialogs();
 menu.RunMenu();

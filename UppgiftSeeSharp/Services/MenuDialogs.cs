@@ -5,7 +5,7 @@ namespace UppgiftSeeSharp.Services;
 
 public class MenuDialogs : Menu
 {
-
+    /*private readonly UserService _userService = "new UserService();";*/
 
     public void RunMenu()
     {
