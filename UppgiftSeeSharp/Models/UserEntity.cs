@@ -1,5 +1,5 @@
 ﻿namespace UppgiftSeeSharp.Models;
 
-internal class UserEntity
+public class UserEntity
 {
 }

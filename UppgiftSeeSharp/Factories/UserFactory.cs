@@ -1,5 +1,5 @@
 ﻿namespace UppgiftSeeSharp.Factories;
 
-internal class UserFactory
+public class UserFactory
 {
 }

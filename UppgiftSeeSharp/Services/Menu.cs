@@ -1,5 +1,6 @@
 ﻿namespace UppgiftSeeSharp.Services;
 
-internal class Menu
+public interface Menu
 {
+    void RunMenu();
 }

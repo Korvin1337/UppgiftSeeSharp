@@ -1,5 +1,5 @@
 ﻿namespace UppgiftSeeSharp.Helpers;
 
-internal class UniqueIdGenerator
+public class UniqueIdGenerator
 {
 }

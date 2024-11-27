@@ -1,5 +1,5 @@
 ﻿namespace UppgiftSeeSharp.Models;
 
-internal class UserRegistrationForm
+public class UserRegistrationForm
 {
 }
