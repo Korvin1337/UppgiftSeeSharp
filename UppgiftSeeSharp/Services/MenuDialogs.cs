@@ -5,7 +5,7 @@ namespace UppgiftSeeSharp.Services;
 
 public class MenuDialogs : Menu
 {
-    /*private readonly UserService _userService = "new UserService();";*/
+    private readonly UserService _userService = new UserService();
 
     public void RunMenu()
     {
@@ -20,8 +20,8 @@ public class MenuDialogs : Menu
         Console.WriteLine("");
         Console.WriteLine("--------------------------------");
         Console.WriteLine($"{"1. ", -5} Create User");
-        Console.WriteLine($"{"2. ",-5} View User");
-        Console.WriteLine($"{"q. ",-5} Quit Program");
+        Console.WriteLine($"{"2. ", -5} View User");
+        Console.WriteLine($"{"q. ", -5} Quit Program");
         Console.WriteLine("--------------------------------");
         Console.Write("Choose option: ");
         var option = Console.ReadLine()!;
@@ -51,34 +51,34 @@ public class MenuDialogs : Menu
         */
 
         /* UserRegistrationForm */
-        var userRegistrationForm = "UserFactory.Create();";
+        UserRegistrationForm userRegistrationForm = UserFactory.Create();
         Console.Clear();
 
         Console.Write("Enter your first name: ");
-        userRegistrationForm.Concat(Console.ReadLine()!);
+        userRegistrationForm.FirstName = Console.ReadLine()!;
 
         Console.Write("Enter your last name: ");
-        userRegistrationForm.Concat(Console.ReadLine()!);
+        userRegistrationForm.LastName = Console.ReadLine()!;
 
         Console.Write("Enter your email: ");
-        userRegistrationForm.Concat(Console.ReadLine()!);
+        userRegistrationForm.Email = Console.ReadLine()!;
 
         Console.Write("Enter your phonenumber: ");
-        userRegistrationForm.Concat(Console.ReadLine()!);
+        userRegistrationForm.PhoneNumber = Console.ReadLine()!;
 
         Console.Write("Enter your street address: ");
-        userRegistrationForm.Concat(Console.ReadLine()!);
+        userRegistrationForm.Address = Console.ReadLine()!;
 
         Console.Write("Enter your postal number: ");
-        userRegistrationForm.Concat(Console.ReadLine()!);
+        userRegistrationForm.PostalNumber = Console.ReadLine()!;
 
         Console.Write("Enter your city: ");
-        userRegistrationForm.Concat(Console.ReadLine()!);
+        userRegistrationForm.City = Console.ReadLine()!;
 
         /* Bool Result */
-        var result = "_userService.Create(userRegistrationForm";
+        bool result = _userService.Create(userRegistrationForm);
 
-        if (result == "_userService.Create(userRegistrationForm")
+        if (result)
         {
             OutPutDialog("User was successfully created.");
         } else
@@ -91,7 +91,7 @@ public class MenuDialogs : Menu
 
     public void ViewUsers()
     {
-        var users = "_userService.GetAll();";
+        var users = _userService.GetAll();
 
         foreach (var user in users)
         {

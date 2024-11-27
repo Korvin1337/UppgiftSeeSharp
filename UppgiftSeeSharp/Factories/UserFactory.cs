@@ -20,7 +20,7 @@ public static class UserFactory
             Email = form.Email,
             PhoneNumber = form.Email,
             Address = form.Address,
-            Postal = form.Postal,
+            PostalNumber = form.PostalNumber,
             City = form.City
         };
     }
