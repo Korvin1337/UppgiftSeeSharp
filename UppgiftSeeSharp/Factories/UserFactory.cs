@@ -18,7 +18,7 @@ public static class UserFactory
             FirstName = form.FirstName,
             LastName = form.LastName,
             Email = form.Email,
-            PhoneNumber = form.Email,
+            PhoneNumber = form.PhoneNumber,
             Address = form.Address,
             PostalNumber = form.PostalNumber,
             City = form.City
@@ -33,9 +33,9 @@ public static class UserFactory
             FirstName = entity.FirstName,
             LastName = entity.LastName,
             Email = entity.Email,
-            PhoneNumber = entity.Email,
+            PhoneNumber = entity.PhoneNumber,
             Address = entity.Address,
-            Postal = entity.Postal,
+            PostalNumber = entity.PostalNumber,
             City = entity.City,
         };
     }

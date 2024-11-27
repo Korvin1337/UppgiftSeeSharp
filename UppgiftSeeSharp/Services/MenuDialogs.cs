@@ -95,11 +95,11 @@ public class MenuDialogs : Menu
 
         foreach (var user in users)
         {
-            Console.WriteLine($"{"1. ",-5} {"user.Id"}");
-            Console.WriteLine($"{"1. ",-5} {"user.FirstName"} {"user.LastName"}");
-            Console.WriteLine($"{"1. ",-5} {"user.Email"}");
-            Console.WriteLine($"{"1. ",-5} {"user.PhoneNumber"}");
-            Console.WriteLine($"{"1. ",-5} {"user.Address"} {"user.PostalNumber"} {"user.City"}");
+            Console.WriteLine($"{"Id: ",-5} {user.Id}");
+            Console.WriteLine($"{"Name: ",-5} {user.FirstName} {user.LastName}");
+            Console.WriteLine($"{"Email: ",-5} {user.Email}");
+            Console.WriteLine($"{"PhoneNumber: ",-5} {user.PhoneNumber}");
+            Console.WriteLine($"{"Address: ",-5} {user.Address} {user.PostalNumber} {user.City}");
             Console.WriteLine("");
         }
 
