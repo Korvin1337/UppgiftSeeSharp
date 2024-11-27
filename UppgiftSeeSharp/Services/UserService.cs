@@ -2,12 +2,14 @@
 using UppgiftSeeSharp.Factories;
 using UppgiftSeeSharp.Helpers;
 using System.Diagnostics;
+using System.IO.Enumeration;
 
 namespace UppgiftSeeSharp.Services;
 
 public class UserService
 {
-    private readonly List<UserEntity> _users = [];
+    private List<UserEntity> _users = [];
+    private readonly FileService _fileService = new FileService(fileName: "users.json");
 
     public bool Create(UserRegistrationForm form)
     {
@@ -16,6 +18,7 @@ public class UserService
             UserEntity userEntity = UserFactory.Create(form);
 
             _users.Add(userEntity);
+            _fileService.SaveListToFile<UserEntity>(_users);
             return true;
         } catch (Exception ex)
         {
@@ -26,6 +29,7 @@ public class UserService
 
     public IEnumerable<User> GetAll()
     {
+        _users = _fileService.LoadListFromFile();
         return _users.Select(UserFactory.Create);
     }
 
