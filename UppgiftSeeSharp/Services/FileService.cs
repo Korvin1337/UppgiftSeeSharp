@@ -25,10 +25,11 @@ public class FileService
             if (!Directory.Exists(_directoryPath))
             {
                 Directory.CreateDirectory(_directoryPath);
-                var json = JsonSerializer.Serialize(list, _jsonSerializerOptions);
-                File.WriteAllText(_filePath, json);
-
             }
+
+            var json = JsonSerializer.Serialize(list, _jsonSerializerOptions);
+            File.WriteAllText(_filePath, json);
+
         } catch (Exception ex)
         {
             Debug.WriteLine(ex.Message);
