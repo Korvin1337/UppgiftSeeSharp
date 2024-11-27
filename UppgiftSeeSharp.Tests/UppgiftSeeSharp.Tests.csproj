@@ -23,13 +23,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\UppgiftSeeSharp\UppgiftSeeSharp.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Helpers\" />
     <Folder Include="Factories\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UppgiftSeeSharp\UppgiftSeeSharp.csproj" />
   </ItemGroup>
 
 </Project>

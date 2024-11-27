@@ -1,10 +1,10 @@
-﻿using UppgiftSeeSharp.Models;
-using UppgiftSeeSharp.Factories;
-using UppgiftSeeSharp.Helpers;
+﻿using Busniess.Models;
+using Busniess.Factories;
+using Busniess.Helpers;
 using System.Diagnostics;
 using System.IO.Enumeration;
 
-namespace UppgiftSeeSharp.Services;
+namespace Busniess.Services;
 
 public class UserService
 {

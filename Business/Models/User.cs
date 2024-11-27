@@ -1,4 +1,4 @@
-﻿namespace UppgiftSeeSharp.Models;
+﻿namespace Busniess.Models;
 
 public class User
 {

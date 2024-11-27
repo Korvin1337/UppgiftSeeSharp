@@ -1,7 +1,7 @@
-﻿using UppgiftSeeSharp.Helpers;
-using UppgiftSeeSharp.Models;
+﻿using Busniess.Helpers;
+using Busniess.Models;
 
-namespace UppgiftSeeSharp.Factories;
+namespace Busniess.Factories;
 
 public static class UserFactory
 {

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text.Json;
-using UppgiftSeeSharp.Models;
+using Busniess.Models;
 
-namespace UppgiftSeeSharp.Services;
+namespace Busniess.Services;
 
 public class FileService
 {

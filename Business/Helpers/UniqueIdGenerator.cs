@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace UppgiftSeeSharp.Helpers;
+namespace Busniess.Helpers;
 
 public class UniqueIdGenerator
 {

@@ -8,5 +8,9 @@ namespace UppgiftSeeSharp.Tests.Services
 {
     public class FileServiceTests
     {
+        [Fact]
+        public void SaveListToFile_CreatesDirectoryAndWritesFile()
+        {
+        }
     }
 }
