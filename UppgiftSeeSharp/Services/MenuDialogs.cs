@@ -1,17 +1,14 @@
-﻿using Busniess.Factories;
+﻿using Business.Interfaces;
+using Busniess.Factories;
 using Busniess.Models;
 using Busniess.Services;
+using UppgiftSeeSharp.Interfaces;
 
 namespace UppgiftSeeSharp.Services;
 
-public class MenuDialogs : Menu
+public class MenuDialogs(IUserService userService) : IMenuDialogs
 {
-    private readonly UserService _userService;
-
-    public MenuDialogs(UserService userService)
-    {
-        _userService = userService;
-    }
+    private readonly IUserService _userService = userService;
 
     public void RunMenu()
     {
@@ -25,14 +22,14 @@ public class MenuDialogs : Menu
     {
         Console.WriteLine("");
         Console.WriteLine("--------------------------------");
-        Console.WriteLine($"{"1. ", -5} Create User");
-        Console.WriteLine($"{"2. ", -5} View User");
-        Console.WriteLine($"{"q. ", -5} Quit Program");
+        Console.WriteLine($"{"1. ",-5} Create User");
+        Console.WriteLine($"{"2. ",-5} View User");
+        Console.WriteLine($"{"q. ",-5} Quit Program");
         Console.WriteLine("--------------------------------");
         Console.Write("Choose option: ");
         var option = Console.ReadLine()!;
 
-        switch(option.ToString().ToLower())
+        switch (option.ToString().ToLower())
         {
             case "1":
                 CreateUser();
@@ -87,7 +84,8 @@ public class MenuDialogs : Menu
         if (result)
         {
             OutPutDialog("User was successfully created.");
-        } else
+        }
+        else
         {
             OutPutDialog("User was not created. Please enter valid details.");
         }
@@ -128,7 +126,7 @@ public class MenuDialogs : Menu
     public void Invalid()
     {
         Console.Clear();
-        Console.WriteLine("Please make a valid option..." );
+        Console.WriteLine("Please make a valid option...");
         Console.ReadKey();
     }
 

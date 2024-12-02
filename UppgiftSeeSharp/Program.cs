@@ -2,17 +2,19 @@
 using Busniess.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using UppgiftSeeSharp.Interfaces;
 using UppgiftSeeSharp.Services;
 
 var host = Host.CreateDefaultBuilder()
-    .ConfigureServices((context, services) =>
+    .ConfigureServices(services =>
     {
-        services.AddSingleton<IFileService>(new FileService(fileName: "users.json"));
-        services.AddSingleton<UserService>();
-
-        services.AddSingleton<MenuDialogs>();
+        services.AddSingleton<IFileService, FileService>();
+        services.AddTransient<IUserService, UserService>();
+        services.AddTransient<IMenuDialogs, MenuDialogs>();
     })
     .Build();
 
-Menu menu = host.Services.GetRequiredService<MenuDialogs>();
-menu.RunMenu();
+using var scope = host.Services.CreateScope();
+var mainMenu = scope.ServiceProvider.GetRequiredService<IMenuDialogs>();
+
+mainMenu.RunMenu();

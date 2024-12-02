@@ -4,18 +4,15 @@ using Busniess.Helpers;
 using System.Diagnostics;
 using System.IO.Enumeration;
 using Business.Interfaces;
+using System.Text.Json.Nodes;
+using System.Text.Json;
 
 namespace Busniess.Services;
 
-public class UserService
+public class UserService(IFileService fileService) : IUserService
 {
+    private readonly IFileService _fileService = fileService;
     private List<UserEntity> _users = [];
-    private readonly IFileService _fileService;
-
-    public UserService(IFileService fileService)
-    {
-        _fileService = fileService;
-    }
 
     public bool Create(UserRegistrationForm form)
     {
@@ -36,12 +33,27 @@ public class UserService
 
     public IEnumerable<User> GetAll()
     {
-        _users = _fileService.LoadListFromFile();
-        return _users.Select(UserFactory.Create);
+        try
+        {
+            _users = _fileService.LoadListFromFile();
+            return _users.Select(UserFactory.Create);
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex.Message);
+            return [];
+        }
     }
 
     public void ClearList()
     {
+        try
+        {
         _users.Clear();
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine(ex.Message);
+        }
     }
 }
