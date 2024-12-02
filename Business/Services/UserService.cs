@@ -3,13 +3,19 @@ using Busniess.Factories;
 using Busniess.Helpers;
 using System.Diagnostics;
 using System.IO.Enumeration;
+using Business.Interfaces;
 
 namespace Busniess.Services;
 
 public class UserService
 {
     private List<UserEntity> _users = [];
-    private readonly FileService _fileService = new FileService(fileName: "users.json");
+    private readonly IFileService _fileService;
+
+    public UserService(IFileService fileService)
+    {
+        _fileService = fileService;
+    }
 
     public bool Create(UserRegistrationForm form)
     {
@@ -20,7 +26,8 @@ public class UserService
             _users.Add(userEntity);
             _fileService.SaveListToFile<UserEntity>(_users);
             return true;
-        } catch (Exception ex)
+        }
+        catch (Exception ex)
         {
             Debug.WriteLine(ex.Message);
             return false;
