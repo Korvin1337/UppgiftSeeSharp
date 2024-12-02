@@ -1,11 +1,10 @@
 ﻿using Busniess.Models;
 
-namespace Business.Interfaces
+namespace Business.Interfaces;
+
+public interface IUserService
 {
-    public interface IUserService
-    {
-        void ClearList();
-        bool Create(UserRegistrationForm form);
-        IEnumerable<User> GetAll();
-    }
+    void ClearList();
+    bool Create(UserRegistrationForm form);
+    IEnumerable<User> GetAll();
 }

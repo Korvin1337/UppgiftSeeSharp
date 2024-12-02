@@ -1,10 +1,9 @@
 ﻿using Busniess.Models;
 
-namespace Business.Interfaces
+namespace Business.Interfaces;
+
+public interface IFileService
 {
-    public interface IFileService
-    {
-        List<UserEntity> LoadListFromFile();
-        void SaveListToFile<T>(List<T> list);
-    }
+    List<UserEntity> LoadListFromFile();
+    void SaveListToFile<T>(List<T> list);
 }
