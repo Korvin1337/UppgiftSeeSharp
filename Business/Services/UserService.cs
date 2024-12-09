@@ -49,7 +49,7 @@ public class UserService(IFileService fileService) : IUserService
     {
         try
         {
-        _users.Clear();
+            _users.Clear();
         }
         catch (Exception ex)
         {
