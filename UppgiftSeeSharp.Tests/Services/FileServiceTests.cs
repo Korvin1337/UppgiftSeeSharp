@@ -38,19 +38,78 @@ public class FileServiceTests
     public void SaveListToFile_ShouldCreateDirectoryAndWriteFile()
     {
         // arrange
+        // /* Chat GPT4o Check what type of List syntax and Verifiable method.*/
+        // /* Chat GPT 4o help me by suggesting I should create users in a List with UserEntity to save my users,*/
+        // /* To then be able to use userservice which then saves the users,*/
+        // /* Finally it's verified with the mock*/
+        var users = new List<UserEntity>
+        {
+            new UserEntity {
+                Id = "1",
+                FirstName = "Test",
+                LastName = "Testsson",
+                Email = "Test@Testsson@Email.Com",
+                PhoneNumber = "0760493045",
+                Address = "TestVagen 24A",
+                PostalNumber = "493 52",
+                City = "TestStaden"
+            },
+            new UserEntity {
+                Id = "2",
+                FirstName = "Test2",
+                LastName = "Testsson2",
+                Email = "Test2@Testsson2@Email.Com",
+                PhoneNumber = "0762493045",
+                Address = "TestVagen 22A",
+                PostalNumber = "493 22",
+                City = "TestStaden2"
+            }
+        };
+        _fileServiceMock.Setup(fs => fs.SaveListToFile(It.IsAny<List<UserEntity>>())).Verifiable();
 
         // act
+        _fileService.SaveListToFile(users);
 
         // assert
+        _fileServiceMock.Verify(fs => fs.SaveListToFile(It.Is<List<UserEntity>>(list => list.SequenceEqual(users))), Times.Once);
     }
 
     [Fact]
     public void LoadListFromFile_ShouldReturnList()
     {
-        // arrange
+        var users = new List<UserEntity>
+        {
+            new UserEntity {
+                Id = "1",
+                FirstName = "Test",
+                LastName = "Testsson",
+                Email = "Test@Testsson@Email.Com",
+                PhoneNumber = "0760493045",
+                Address = "TestVagen 24A",
+                PostalNumber = "493 52",
+                City = "TestStaden"
+            },
+            new UserEntity {
+                Id = "2",
+                FirstName = "Test2",
+                LastName = "Testsson2",
+                Email = "Test2@Testsson2@Email.Com",
+                PhoneNumber = "0762493045",
+                Address = "TestVagen 22A",
+                PostalNumber = "493 22",
+                City = "TestStaden2"
+            }
+        };
+        /* Chat GPT 4o Help me with syntax and understand why i should use LoadListFromFile, not needed to save */
+        _fileServiceMock.Setup(fs => fs.LoadListFromFile()).Returns(users);
 
-        // act
+        // act /* Chat GPT 4o Help me with the syntax for result to load the file */
+        _fileService.SaveListToFile(users);
+        var result = _fileService.LoadListFromFile();
 
-        // assert
+        // assert /* Chat GPT 4o Help me with the arguments that should be passed in the fileServiceMock */
+        _fileServiceMock.Verify(fs => fs.LoadListFromFile(), Times.Once);
+        Assert.Equal(2, result.Count);
+        Assert.NotNull(result);
     }
 }
