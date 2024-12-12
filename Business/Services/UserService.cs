@@ -11,6 +11,9 @@ namespace Busniess.Services;
 
 public class UserService : IUserService
 {
+    /* ChatGPT 4o help me with the saving and loading logic of my UserService
+     * Putting the List and file in the constructor below,
+     * The main differnece being the _users list executing the LoadUsersFromFile Method */
     private readonly IFileService _fileService;
     private readonly List<UserEntity> _users;
 
