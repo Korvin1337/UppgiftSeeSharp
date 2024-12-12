@@ -1,4 +1,6 @@
-﻿namespace Busniess.Models;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Busniess.Models;
 
 public class User
 {

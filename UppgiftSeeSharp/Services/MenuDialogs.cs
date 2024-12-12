@@ -57,37 +57,43 @@ public class MenuDialogs(IUserService userService) : IMenuDialogs
         UserRegistrationForm userRegistrationForm = UserFactory.Create();
         Console.Clear();
 
-        Console.Write("Enter your first name: ");
-        userRegistrationForm.FirstName = Console.ReadLine()!;
+        // Get First Name
+        userRegistrationForm.FirstName = GetInput("Enter your first name: ");
 
-        Console.Write("Enter your last name: ");
-        userRegistrationForm.LastName = Console.ReadLine()!;
+        // Get Last Name
+        userRegistrationForm.LastName = GetInput("Enter your last name: ");
 
-        Console.Write("Enter your email: ");
-        userRegistrationForm.Email = Console.ReadLine()!;
+        // Get Email
+        userRegistrationForm.Email = GetInput("Enter your email: ");
 
-        Console.Write("Enter your phonenumber: ");
-        userRegistrationForm.PhoneNumber = Console.ReadLine()!;
+        // Get Phone Number
+        userRegistrationForm.PhoneNumber = GetInput("Enter your phonenumber: ");
 
-        Console.Write("Enter your street address: ");
-        userRegistrationForm.Address = Console.ReadLine()!;
+        // Get Street Address
+        userRegistrationForm.Address = GetInput("Enter your street address: ");
 
-        Console.Write("Enter your postal number: ");
-        userRegistrationForm.PostalNumber = Console.ReadLine()!;
+        // Get Postal Number
+        userRegistrationForm.PostalNumber = GetInput("Enter your postal number: ");
 
-        Console.Write("Enter your city: ");
-        userRegistrationForm.City = Console.ReadLine()!;
+        // Get City
+        userRegistrationForm.City = GetInput("Enter your city: ");
 
-        /* Bool Result */
-        bool result = _userService.Create(userRegistrationForm);
-
-        if (result)
+        /* Bool Result,  Adding try and catch by suggestion of CHATGPT 4o*/
+        try
         {
-            OutPutDialog("User was successfully created.");
+            bool result = _userService.Create(userRegistrationForm);
+            if (result)
+            {
+                OutPutDialog("User was successfully created.");
+            }
+            else
+            {
+                OutPutDialog("User was not created. Please enter valid details.");
+            }
         }
-        else
+        catch (Exception ex)
         {
-            OutPutDialog("User was not created. Please enter valid details.");
+            OutPutDialog($"An error occured when trying to create the user: {ex.Message}");
         }
 
         Console.ReadKey();
@@ -113,14 +119,12 @@ public class MenuDialogs(IUserService userService) : IMenuDialogs
     public void Quit()
     {
         Console.Clear();
-        Console.WriteLine("Do you want to exit? (y/n): ");
-        var option = Console.ReadLine()!;
+        var option = GetInput("Do you want to exit? (y/n): ");
 
         if (option.Equals("y", StringComparison.CurrentCultureIgnoreCase))
         {
             Environment.Exit(0);
         }
-        Console.ReadKey();
     }
 
     public void Invalid()
@@ -137,5 +141,17 @@ public class MenuDialogs(IUserService userService) : IMenuDialogs
         Console.ReadKey();
     }
 
+    /* Suggestion of CHATGPT 4o to make my prompts check for null or whitespace,
+       and be able to loop until a desired input is made */
+    public static string GetInput(string prompt)
+    {
+        string input;
+        do
+        {
+            Console.Write(prompt);
+            input = Console.ReadLine()!;
+        } while (string.IsNullOrWhiteSpace(input));
+        return input;
+    }
 
 }
