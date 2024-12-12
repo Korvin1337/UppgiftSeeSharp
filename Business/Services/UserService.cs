@@ -35,7 +35,7 @@ public class UserService(IFileService fileService) : IUserService
     {
         try
         {
-            _users = _fileService.LoadListFromFile();
+            _users = _fileService.LoadListFromFile<UserEntity>();
             return _users.Select(UserFactory.Create);
         }
         catch (Exception ex)

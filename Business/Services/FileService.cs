@@ -35,12 +35,16 @@ public class FileService : IFileService
         catch (Exception ex)
         {
             Debug.WriteLine(ex.Message);
-
         }
 
     }
 
-    public List<UserEntity> LoadListFromFile()
+
+    /* I used CHATGPT 4o to ask about if my code follow the SOLID Design pattern or not,
+     * Instead of only using UserEntity List like before,
+     * It gave me examples of using List<T> syntax instead which i updated my code with,
+     * This should make my code more reusable aswell for other "loads" in the future */
+    public List<T> LoadListFromFile<T>()
     {
         try
         {
@@ -50,7 +54,7 @@ public class FileService : IFileService
             }
 
             var json = File.ReadAllText(_filePath);
-            var list = JsonSerializer.Deserialize<List<UserEntity>>(json, _jsonSerializerOptions);
+            var list = JsonSerializer.Deserialize<List<T>>(json, _jsonSerializerOptions);
             return list ?? [];
 
         }

@@ -1,10 +1,5 @@
-﻿using Busniess.Models;
+﻿namespace Business.Interfaces;
 
-namespace Business.Interfaces;
-
-public interface IUserService
+public interface IUserService: IUserClearList, IUserCreate, IUserGetAll
 {
-    void ClearList();
-    bool Create(UserRegistrationForm form);
-    IEnumerable<User> GetAll();
 }

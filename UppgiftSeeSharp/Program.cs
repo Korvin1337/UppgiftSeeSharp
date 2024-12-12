@@ -8,7 +8,7 @@ using UppgiftSeeSharp.Services;
 var host = Host.CreateDefaultBuilder()
     .ConfigureServices(services =>
     {
-        services.AddSingleton<IFileService, FileService>();
+        services.AddTransient<IFileService, FileService>();
         services.AddTransient<IUserService, UserService>();
         services.AddTransient<IMenuDialogs, MenuDialogs>();
     })
