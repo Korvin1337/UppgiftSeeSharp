@@ -2,13 +2,22 @@
 using Busniess.Factories;
 using Busniess.Models;
 using Busniess.Services;
+using Busniess.Helpers;
 using UppgiftSeeSharp.Interfaces;
+using Business.Helpers;
+using Business.Services;
 
 namespace UppgiftSeeSharp.Services;
 
-public class MenuDialogs(IUserService userService) : IMenuDialogs
+public class MenuDialogs(IUserService userService, UserFactory userFactory, ErrorLogger errorLogger, InputHandler inputHandler, MessageHandler messageHandler, UserInputService userInputService) : IMenuDialogs
 {
     private readonly IUserService _userService = userService;
+    private readonly UserFactory _userFactory = userFactory;
+    private readonly ErrorLogger _errorLogger = errorLogger;
+    private readonly InputHandler _inputHandler = inputHandler;
+    private readonly MessageHandler _messageHandler = messageHandler;
+    private readonly UserInputService _userInputService = userInputService;
+
 
     public void RunMenu()
     {
@@ -26,8 +35,7 @@ public class MenuDialogs(IUserService userService) : IMenuDialogs
         Console.WriteLine($"{"2. ",-5} View User");
         Console.WriteLine($"{"q. ",-5} Quit Program");
         Console.WriteLine("--------------------------------");
-        Console.Write("Choose option: ");
-        var option = Console.ReadLine()!;
+        var option = _inputHandler.GetInput("Choose option: ");
 
         switch (option.ToString().ToLower())
         {
@@ -41,7 +49,7 @@ public class MenuDialogs(IUserService userService) : IMenuDialogs
                 Quit();
                 break;
             default:
-                Invalid();
+                _messageHandler.ShowMessage("Please enter a valid option: ");
                 break;
         }
     }
@@ -54,29 +62,8 @@ public class MenuDialogs(IUserService userService) : IMenuDialogs
         */
 
         /* UserRegistrationForm */
-        UserRegistrationForm userRegistrationForm = UserFactory.Create();
-        Console.Clear();
+        var userRegistrationForm = _userInputService.CollectUserData();
 
-        // Get First Name
-        userRegistrationForm.FirstName = GetInput("Enter your first name: ");
-
-        // Get Last Name
-        userRegistrationForm.LastName = GetInput("Enter your last name: ");
-
-        // Get Email
-        userRegistrationForm.Email = GetInput("Enter your email: ");
-
-        // Get Phone Number
-        userRegistrationForm.PhoneNumber = GetInput("Enter your phonenumber: ");
-
-        // Get Street Address
-        userRegistrationForm.Address = GetInput("Enter your street address: ");
-
-        // Get Postal Number
-        userRegistrationForm.PostalNumber = GetInput("Enter your postal number: ");
-
-        // Get City
-        userRegistrationForm.City = GetInput("Enter your city: ");
 
         /* Bool Result,  Adding try and catch by suggestion of CHATGPT 4o*/
         try
@@ -84,16 +71,16 @@ public class MenuDialogs(IUserService userService) : IMenuDialogs
             bool result = _userService.Create(userRegistrationForm);
             if (result)
             {
-                OutPutDialog("User was successfully created.");
+                _messageHandler.ShowMessage("User was successfully created.");
             }
             else
             {
-                OutPutDialog("User was not created. Please enter valid details.");
+                _messageHandler.ShowMessage("User was not created. Please enter valid details.");
             }
         }
         catch (Exception ex)
         {
-            OutPutDialog($"An error occured when trying to create the user: {ex.Message}");
+            _messageHandler.ShowMessage($"An error occured when trying to create the user: {ex.Message}");
         }
 
         Console.ReadKey();
@@ -105,12 +92,13 @@ public class MenuDialogs(IUserService userService) : IMenuDialogs
 
         foreach (var user in users)
         {
-            Console.WriteLine($"{"Id: ",-5} {user.Id}");
-            Console.WriteLine($"{"Name: ",-5} {user.FirstName} {user.LastName}");
-            Console.WriteLine($"{"Email: ",-5} {user.Email}");
-            Console.WriteLine($"{"PhoneNumber: ",-5} {user.PhoneNumber}");
-            Console.WriteLine($"{"Address: ",-5} {user.Address} {user.PostalNumber} {user.City}");
-            Console.WriteLine("");
+            _messageHandler.ShowUser(
+                $"Id: {user.Id}\n" +
+                $"Name: {user.FirstName} {user.LastName}\n" +
+                $"Email: {user.Email}\n" +
+                $"PhoneNumber: {user.PhoneNumber}\n" +
+                $"Address: {user.Address} {user.PostalNumber} {user.City}\n" +
+                "");
         }
 
         Console.ReadKey();
@@ -119,39 +107,18 @@ public class MenuDialogs(IUserService userService) : IMenuDialogs
     public void Quit()
     {
         Console.Clear();
-        var option = GetInput("Do you want to exit? (y/n): ");
+        var option = _inputHandler.GetInput("Do you want to exit? (y/n): ");
 
         if (option.Equals("y", StringComparison.CurrentCultureIgnoreCase))
         {
             Environment.Exit(0);
-        }
-    }
-
-    public void Invalid()
-    {
-        Console.Clear();
-        Console.WriteLine("Please make a valid option...");
-        Console.ReadKey();
-    }
-
-    public void OutPutDialog(string message)
-    {
-        Console.Clear();
-        Console.WriteLine(message);
-        Console.ReadKey();
-    }
-
-    /* Suggestion of CHATGPT 4o to make my prompts check for null or whitespace,
-       and be able to loop until a desired input is made */
-    public static string GetInput(string prompt)
-    {
-        string input;
-        do
+        } else if (option.Equals("n", StringComparison.CurrentCultureIgnoreCase))
         {
-            Console.Write(prompt);
-            input = Console.ReadLine()!;
-        } while (string.IsNullOrWhiteSpace(input));
-        return input;
+            MainMenu();
+        } else
+        {
+            Quit();
+        }
     }
 
 }

@@ -4,7 +4,7 @@ namespace Busniess.Helpers;
 
 public class UniqueIdGenerator
 {
-    public static string GenerateUniqueId()
+    public string GenerateUniqueId()
     {
         try
         {
@@ -16,3 +16,21 @@ public class UniqueIdGenerator
         }
     }
 }
+
+/*
+ *     public class UniqueIdService
+    {
+        public string GenerateUniqueId()
+        {
+            try
+            {
+                return UniqueIdGenerator.GenerateUniqueId();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return "Error generating id";
+            }
+        }
+    }
+*/

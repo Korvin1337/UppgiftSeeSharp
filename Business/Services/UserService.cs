@@ -15,19 +15,23 @@ public class UserService : IUserService
      * Putting the List and file in the constructor below,
      * The main differnece being the _users list executing the LoadUsersFromFile Method */
     private readonly IFileService _fileService;
+    private readonly UserFactory _userFactory;
     private readonly List<UserEntity> _users;
+    private readonly ErrorLogger _errorLogger;
 
-    public UserService(IFileService fileservice)
+    public UserService(IFileService fileservice, UserFactory userFactory, ErrorLogger errorLogger)
     {
         _fileService = fileservice;
+        _userFactory = userFactory;
         _users = LoadUsersFromFile();
+        _errorLogger = errorLogger;
     }
 
     public bool Create(UserRegistrationForm form)
     {
         try
         {
-            UserEntity userEntity = UserFactory.Create(form);
+            UserEntity userEntity = _userFactory.Create(form);
 
             if (userEntity != null)
             {
@@ -39,7 +43,7 @@ public class UserService : IUserService
         }
         catch (Exception ex)
         {
-            Debug.WriteLine(ex.Message);
+            _errorLogger.ErrorMessage($"Error creating the user: {ex.Message}");
             return false;
         }
     }
@@ -48,11 +52,11 @@ public class UserService : IUserService
     {
         try
         {
-            return _users.Select(UserFactory.Create);
+            return _users.Select(user => _userFactory.Create(user));
         }
         catch (Exception ex)
         {
-            Debug.WriteLine(ex.Message);
+            _errorLogger.ErrorMessage($"Error fetching the list of users: {ex.Message}");
             return [];
         }
     }
@@ -66,7 +70,7 @@ public class UserService : IUserService
         }
         catch (Exception ex)
         {
-            Debug.WriteLine(ex.Message);
+            _errorLogger.ErrorMessage($"Error clearing the list of users: {ex.Message}");
         }
     }
 
@@ -82,7 +86,7 @@ public class UserService : IUserService
             return _fileService.LoadListFromFile<UserEntity>();
         } catch (Exception ex)
         {
-            Debug.WriteLine(ex.Message);
+            _errorLogger.ErrorMessage($"Error loading the file of users: {ex.Message}");
             return [];
         }
     }
@@ -95,7 +99,7 @@ public class UserService : IUserService
             _fileService.SaveListToFile(_users);
         } catch (Exception ex)
         {
-            Debug.WriteLine(ex.Message);
+            _errorLogger.ErrorMessage($"Error saving the users to file: {ex.Message}");
         }
     }
 }

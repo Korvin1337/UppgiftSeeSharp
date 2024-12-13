@@ -12,7 +12,7 @@ namespace Business.Repositories;
 
 public class UserRepository
 {
-    private readonly IFileService _fileService;
+    /*private readonly IFileService _fileService;
 
     public UserRepository(IFileService fileService)
     {
@@ -31,5 +31,5 @@ public class UserRepository
             Debug.WriteLine(ex.Message);
             return false;
         }
-    }
+    }*/
 }

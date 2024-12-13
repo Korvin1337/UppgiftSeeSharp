@@ -1,4 +1,8 @@
-﻿using Business.Interfaces;
+﻿using Business.Helpers;
+using Business.Interfaces;
+using Business.Services;
+using Busniess.Factories;
+using Busniess.Helpers;
 using Busniess.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -10,6 +14,13 @@ var host = Host.CreateDefaultBuilder()
     {
         services.AddTransient<IFileService, FileService>();
         services.AddTransient<IUserService, UserService>();
+        /* Settomg up the UserFactory, logger and uniqueIdService with the help of chatgpt4 */
+        services.AddTransient<ErrorLogger>();
+        services.AddTransient<UniqueIdGenerator>();
+        services.AddTransient<InputHandler>();
+        services.AddTransient<MessageHandler>();
+        services.AddTransient<UserInputService>();
+        services.AddTransient<UserFactory, UserFactory>();
         services.AddTransient<IMenuDialogs, MenuDialogs>();
     })
     .Build();

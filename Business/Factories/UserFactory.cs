@@ -4,20 +4,32 @@ using System.Diagnostics;
 
 namespace Busniess.Factories;
 
-public static class UserFactory
+public class UserFactory
 {
-    public static UserRegistrationForm Create()
+    /* CHAT GPT4 help me move the logic of the generation of the Id and error messages,
+     * to follow the SRP. */
+    private readonly UniqueIdGenerator _uniqueIdGenerator;
+    private readonly ErrorLogger _errorLogger;
+
+    public UserFactory(UniqueIdGenerator uniqueIdGenerator, ErrorLogger errorLogger)
+    {
+        _uniqueIdGenerator = uniqueIdGenerator;
+        _errorLogger = errorLogger;
+    }
+
+    public UserRegistrationForm Create()
     {
         return new UserRegistrationForm();
     }
 
-    public static UserEntity Create(UserRegistrationForm form)
+    public UserEntity Create(UserRegistrationForm form)
     {
         try
         {
+             var uniqueId = _uniqueIdGenerator.GenerateUniqueId();
             return new UserEntity()
             {
-                Id = UniqueIdGenerator.GenerateUniqueId(),
+                Id = uniqueId,
                 FirstName = form.FirstName,
                 LastName = form.LastName,
                 Email = form.Email,
@@ -28,12 +40,12 @@ public static class UserFactory
             };
         } catch (Exception ex)
         {
-            Debug.WriteLine($"Error creating UserEntity: {ex.Message}");
+            _errorLogger.ErrorMessage($"Error creating UserEntity: {ex.Message}");
             return null!;
         }
     }
 
-    public static User Create(UserEntity entity)
+    public User Create(UserEntity entity)
     {
         try
         {
@@ -51,8 +63,9 @@ public static class UserFactory
         }
         catch (Exception ex)
         {
-            Debug.WriteLine($"Error creating UserEntity: {ex.Message}");
+            _errorLogger.ErrorMessage($"Error creating UserEntity: {ex.Message}");
             return null!;
         }
     }
+    
 }

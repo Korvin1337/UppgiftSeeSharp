@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Text.Json;
 using Business.Interfaces;
+using Busniess.Factories;
 using Busniess.Models;
 
 namespace Busniess.Services;
@@ -11,12 +12,14 @@ public class FileService : IFileService
     private readonly string _directoryPath;
     private readonly string _filePath;
     private readonly JsonSerializerOptions _jsonSerializerOptions;
+    private readonly ErrorLogger _errorLogger;
 
-    public FileService(string directoryPath = "Data", string fileName = "users.json")
+    public FileService(ErrorLogger errorLogger, string directoryPath = "Data", string fileName = "users.json")
     {
         _directoryPath = directoryPath;
         _filePath = Path.Combine(_directoryPath, fileName);
         _jsonSerializerOptions = new JsonSerializerOptions { WriteIndented = true };
+        _errorLogger = errorLogger;
     }
 
     public void SaveListToFile<T>(List<T> list)
@@ -34,7 +37,7 @@ public class FileService : IFileService
         }
         catch (Exception ex)
         {
-            Debug.WriteLine(ex.Message);
+            _errorLogger.ErrorMessage($"Error saving list to the file: {ex.Message}");
         }
 
     }
@@ -60,7 +63,7 @@ public class FileService : IFileService
         }
         catch (Exception ex)
         {
-            Debug.WriteLine(ex.Message);
+            _errorLogger.ErrorMessage($"Error loading list from the file: {ex.Message}");
             return [];
         }
     }
