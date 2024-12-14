@@ -8,8 +8,11 @@ namespace Business.Helpers;
 
 /* By suggestion of ChatGpt4 im moving my logic of handling inputs
  * This is to adhere to the SRP */
-public class InputHandler
+public class InputHandler(ConsoleWrapper consoleWrapper)
 {
+    /* Adding the consolewrapper for my console logic */
+    private readonly ConsoleWrapper _consoleWrapper = consoleWrapper;
+
     /* Suggestion of CHATGPT 4o to make my prompts check for null or whitespace,
    and be able to loop until a desired input is made */
     public string GetInput(string prompt)
@@ -17,8 +20,8 @@ public class InputHandler
         string input;
         do
         {
-            Console.Write(prompt);
-            input = Console.ReadLine()!;
+            _consoleWrapper.Write(prompt);
+            input = _consoleWrapper.ReadLine();
         } while (string.IsNullOrWhiteSpace(input));
         return input;
     }
