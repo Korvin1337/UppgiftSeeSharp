@@ -6,15 +6,12 @@ namespace Busniess.Factories;
 
 public class UserFactory
 {
-    /* CHAT GPT4 help me move the logic of the generation of the Id and error messages,
-     * to follow the SRP. */
+    /* CHAT GPT4 help me move the logic of the generation of the Id to follow the SRP. */
     private readonly UniqueIdGenerator _uniqueIdGenerator;
-    private readonly ErrorLogger _errorLogger;
 
-    public UserFactory(UniqueIdGenerator uniqueIdGenerator, ErrorLogger errorLogger)
+    public UserFactory(UniqueIdGenerator uniqueIdGenerator)
     {
         _uniqueIdGenerator = uniqueIdGenerator;
-        _errorLogger = errorLogger;
     }
 
     public UserRegistrationForm Create()
@@ -24,48 +21,37 @@ public class UserFactory
 
     public UserEntity Create(UserRegistrationForm form)
     {
-        try
+        /* Check if form is null and throw exception. by suggestion of chatgpt 4 */
+        if (form == null) throw new ArgumentException(nameof(form));
+
+        var uniqueId = _uniqueIdGenerator.GenerateUniqueId();
+
+        return new UserEntity()
         {
-             var uniqueId = _uniqueIdGenerator.GenerateUniqueId();
-            return new UserEntity()
-            {
-                Id = uniqueId,
-                FirstName = form.FirstName,
-                LastName = form.LastName,
-                Email = form.Email,
-                PhoneNumber = form.PhoneNumber,
-                Address = form.Address,
-                PostalNumber = form.PostalNumber,
-                City = form.City
-            };
-        } catch (Exception ex)
-        {
-            _errorLogger.ErrorMessage($"Error creating UserEntity: {ex.Message}");
-            return null!;
-        }
+            Id = uniqueId,
+            FirstName = form.FirstName,
+            LastName = form.LastName,
+            Email = form.Email,
+            PhoneNumber = form.PhoneNumber,
+            Address = form.Address,
+            PostalNumber = form.PostalNumber,
+            City = form.City
+        };
     }
 
     public User Create(UserEntity entity)
     {
-        try
+        return new User()
         {
-            return new User()
-            {
-                Id = entity.Id,
-                FirstName = entity.FirstName,
-                LastName = entity.LastName,
-                Email = entity.Email,
-                PhoneNumber = entity.PhoneNumber,
-                Address = entity.Address,
-                PostalNumber = entity.PostalNumber,
-                City = entity.City,
-            };
-        }
-        catch (Exception ex)
-        {
-            _errorLogger.ErrorMessage($"Error creating UserEntity: {ex.Message}");
-            return null!;
-        }
+            Id = entity.Id,
+            FirstName = entity.FirstName,
+            LastName = entity.LastName,
+            Email = entity.Email,
+            PhoneNumber = entity.PhoneNumber,
+            Address = entity.Address,
+            PostalNumber = entity.PostalNumber,
+            City = entity.City,
+        };
     }
     
 }

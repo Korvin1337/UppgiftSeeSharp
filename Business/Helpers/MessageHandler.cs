@@ -19,13 +19,21 @@ public class MessageHandler
         Console.ReadKey();
     }
 
-    public void ShowUser(User user)
+    /* By suggestion of CHATGPT 4o i need to format the user details in a seperate method,
+     * This is to keep in line with the SRP so i move my formatting to this method and just calls
+     * the formatting method from my showuser method instead */
+    public string FormatUserDetails(User user)
     {
-        Console.WriteLine($"Id: {user.Id}\n" +
+        return ($"Id: {user.Id}\n" +
                 $"Name: {user.FirstName} {user.LastName}\n" +
                 $"Email: {user.Email}\n" +
                 $"PhoneNumber: {user.PhoneNumber}\n" +
                 $"Address: {user.Address} {user.PostalNumber} {user.City}\n" +
                 "");
+    }
+
+    public void ShowUser(User user)
+    {
+        Console.WriteLine(FormatUserDetails(user));
     }
 }
