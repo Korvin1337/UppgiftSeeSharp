@@ -9,11 +9,9 @@ using Business.Services;
 
 namespace UppgiftSeeSharp.Services;
 
-public class MenuDialogs(IUserService userService, UserFactory userFactory, ErrorLogger errorLogger, InputHandler inputHandler, MessageHandler messageHandler, UserInputService userInputService) : IMenuDialogs
+public class MenuDialogs(IUserService userService, InputHandler inputHandler, MessageHandler messageHandler, UserInputService userInputService) : IMenuDialogs
 {
     private readonly IUserService _userService = userService;
-    private readonly UserFactory _userFactory = userFactory;
-    private readonly ErrorLogger _errorLogger = errorLogger;
     private readonly InputHandler _inputHandler = inputHandler;
     private readonly MessageHandler _messageHandler = messageHandler;
     private readonly UserInputService _userInputService = userInputService;
@@ -92,32 +90,38 @@ public class MenuDialogs(IUserService userService, UserFactory userFactory, Erro
 
         foreach (var user in users)
         {
-            _messageHandler.ShowUser(
-                $"Id: {user.Id}\n" +
-                $"Name: {user.FirstName} {user.LastName}\n" +
-                $"Email: {user.Email}\n" +
-                $"PhoneNumber: {user.PhoneNumber}\n" +
-                $"Address: {user.Address} {user.PostalNumber} {user.City}\n" +
-                "");
+            _messageHandler.ShowUser(user);
         }
 
         Console.ReadKey();
     }
 
+    /* Made the GetQuitOption method to move the input logic to a method to adhere to the SRP */
+    public string GetQuitOption()
+    {
+        return _inputHandler.GetInput("Do you want to exit? (y/n): ").ToLower();
+    }
+
+    /* Updating my Quit method to adhere to the SRP
+     * With the help of CHATGPT4o,
+     * Basically im making it focus on only quitting instead of running the menu instead as before 
+       To accomplis this I instead use a bool method that can return true, false or rerun the quit method if invalid input */
     public void Quit()
     {
         Console.Clear();
-        var option = _inputHandler.GetInput("Do you want to exit? (y/n): ");
+        var option = GetQuitOption();
 
-        if (option.Equals("y", StringComparison.CurrentCultureIgnoreCase))
+        switch (option)
         {
-            Environment.Exit(0);
-        } else if (option.Equals("n", StringComparison.CurrentCultureIgnoreCase))
-        {
-            MainMenu();
-        } else
-        {
-            Quit();
+            case "y":
+                Environment.Exit(0);
+                break;
+            case "n":
+                break;
+            default:
+                _messageHandler.ShowMessage($"Invalid input, please enter 'y' to quit or 'n' to keep running the program");
+                Quit();
+                break;
         }
     }
 

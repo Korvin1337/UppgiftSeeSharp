@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Busniess.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,8 +19,13 @@ public class MessageHandler
         Console.ReadKey();
     }
 
-    public void ShowUser(string user)
+    public void ShowUser(User user)
     {
-        Console.WriteLine(user);
+        Console.WriteLine($"Id: {user.Id}\n" +
+                $"Name: {user.FirstName} {user.LastName}\n" +
+                $"Email: {user.Email}\n" +
+                $"PhoneNumber: {user.PhoneNumber}\n" +
+                $"Address: {user.Address} {user.PostalNumber} {user.City}\n" +
+                "");
     }
 }
