@@ -19,6 +19,7 @@ var host = Host.CreateDefaultBuilder()
         services.AddTransient<UniqueIdGenerator>();
         services.AddTransient<InputHandler>();
         services.AddTransient<MessageHandler>();
+        services.AddTransient<ConsoleWrapper>();
         services.AddTransient<UserInputService>();
         services.AddTransient<UserFactory, UserFactory>();
         services.AddTransient<IMenuDialogs, MenuDialogs>();
