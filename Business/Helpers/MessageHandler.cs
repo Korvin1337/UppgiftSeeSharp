@@ -1,4 +1,5 @@
 ﻿using Busniess.Models;
+using Busniess.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,14 +10,16 @@ namespace Business.Helpers;
 
 /* By suggestion of ChatGpt4 im moving my logic of handling messages
  * This is to adhere to the SRP */
-public class MessageHandler
+public class MessageHandler(ConsoleWrapper consoleWrapper)
 {
-    /* General showMessage method instead by suggestion of ChatGPT 4 */ 
+    private readonly ConsoleWrapper _consoleWrapper = consoleWrapper;
+
+    /* General showMessage method instead by suggestion of ChatGPT 4 */
     public void ShowMessage(string message)
     {
-        Console.Clear();
+        _consoleWrapper.Clear();
         Console.WriteLine(message);
-        Console.ReadKey();
+        _consoleWrapper.ReadKey();
     }
 
     /* By suggestion of CHATGPT 4o i need to format the user details in a seperate method,

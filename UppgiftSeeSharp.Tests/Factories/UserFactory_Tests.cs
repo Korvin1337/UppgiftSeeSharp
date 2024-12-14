@@ -1,5 +1,6 @@
 ﻿using Busniess.Models;
 using Busniess.Factories;
+using Busniess.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,10 +15,11 @@ public class UserFactory_Tests
     public void Create_ShouldReturnUserRegistraionForm()
     {
         // arrange
-
+        var uniqueIdGenerator = new UniqueIdGenerator();
+        var userFactory = new UserFactory(uniqueIdGenerator);
 
         // act
-        UserRegistrationForm result = UserFactory.Create();
+        UserRegistrationForm result = userFactory.Create();
 
         // assert
         Assert.IsType<UserRegistrationForm>(result);
@@ -27,6 +29,9 @@ public class UserFactory_Tests
     public void Create_ShouldReturnUserEntity()
     {
         // arrange
+        var uniqueIdGenerator = new UniqueIdGenerator();
+        var userFactory = new UserFactory(uniqueIdGenerator);
+
         UserRegistrationForm userRegistrationForm = new()
         {
             FirstName = "Test",
@@ -40,7 +45,7 @@ public class UserFactory_Tests
 
 
         // act
-        UserEntity result = UserFactory.Create(userRegistrationForm);
+        UserEntity result = userFactory.Create(userRegistrationForm);
 
 
         // assert
@@ -51,6 +56,9 @@ public class UserFactory_Tests
     public void Create_ShouldReturnUser()
     {
         // arrange
+        var uniqueIdGenerator = new UniqueIdGenerator();
+        var userFactory = new UserFactory(uniqueIdGenerator);
+
         UserRegistrationForm userRegistrationForm = new()
         {
             FirstName = "Test",
@@ -61,11 +69,11 @@ public class UserFactory_Tests
             PostalNumber = "493 52",
             City = "TestStaden"
         };
-        UserEntity userEntity = UserFactory.Create(userRegistrationForm);
+        UserEntity userEntity = userFactory.Create(userRegistrationForm);
         
         
         // act
-        User result = UserFactory.Create(userEntity);
+        User result = userFactory.Create(userEntity);
 
 
         // assert

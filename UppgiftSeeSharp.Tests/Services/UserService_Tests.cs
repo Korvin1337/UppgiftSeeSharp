@@ -8,6 +8,7 @@ using Busniess.Models;
 using Moq;
 using Busniess.Services;
 using Busniess.Factories;
+using Busniess.Helpers;
 
 namespace UppgiftSeeSharp.Tests.Services;
 
@@ -32,6 +33,9 @@ public class UserService_Tests
     public void Create_ShouldCreateUser()
     {
         // arrange
+        var uniqueIdGenerator = new UniqueIdGenerator();
+        var userFactory = new UserFactory(uniqueIdGenerator);
+
         UserRegistrationForm form = new()
         {
             FirstName = "Test",
@@ -42,7 +46,7 @@ public class UserService_Tests
             PostalNumber = "493 52",
             City = "TestStaden"
         };
-        UserEntity userEntity = UserFactory.Create(form);
+        UserEntity userEntity = userFactory.Create(form);
 
         // act
         _users.Add(userEntity);

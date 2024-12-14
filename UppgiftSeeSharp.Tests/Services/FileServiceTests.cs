@@ -67,8 +67,8 @@ public class FileServiceTests
         };
         _fileServiceMock.Setup(fs => fs.SaveListToFile(It.IsAny<List<UserEntity>>())).Verifiable();
 
-        // act
-        _fileService.SaveListToFile(users);
+        // act Add the mocking by suggestion of chatgpt 4
+        _fileServiceMock.Object.SaveListToFile(users);
 
         // assert
         _fileServiceMock.Verify(fs => fs.SaveListToFile(It.Is<List<UserEntity>>(list => list.SequenceEqual(users))), Times.Once);
@@ -101,14 +101,13 @@ public class FileServiceTests
             }
         };
         /* Chat GPT 4o Help me with syntax and understand why i should use LoadListFromFile, not needed to save */
-        _fileServiceMock.Setup(fs => fs.LoadListFromFile()).Returns(users);
+        _fileServiceMock.Setup(fs => fs.LoadListFromFile<UserEntity>()).Returns(users);
 
-        // act /* Chat GPT 4o Help me with the syntax for result to load the file */
-        _fileService.SaveListToFile(users);
-        var result = _fileService.LoadListFromFile();
+        // act /* Chat GPT 4o Help me with the syntax for result to load the file and to use Mock instead of actual service */
+        var result = _fileServiceMock.Object.LoadListFromFile<UserEntity>();
 
         // assert /* Chat GPT 4o Help me with the arguments that should be passed in the fileServiceMock */
-        _fileServiceMock.Verify(fs => fs.LoadListFromFile(), Times.Once);
+        _fileServiceMock.Verify(fs => fs.LoadListFromFile<UserEntity>(), Times.Once);
         Assert.Equal(2, result.Count);
         Assert.NotNull(result);
     }

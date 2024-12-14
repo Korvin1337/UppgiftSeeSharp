@@ -15,8 +15,11 @@ public class UniqueIdGenerator_Tests
     public void GenerateUniqueId_ShouldReturnStringOfTypeGuid()
     {
 
+        // arrange (create instance of object because of code update, chat gpt 4o suggestion */
+        var uniqueIdGenerator = new UniqueIdGenerator();
+
         // act
-        string result = UniqueIdGenerator.GenerateUniqueId();
+        string result = uniqueIdGenerator.GenerateUniqueId();
 
         // assert
         Assert.True(Guid.TryParse(result, out _));
