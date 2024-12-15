@@ -30,6 +30,9 @@ public class UserService_Tests
         _users = [];
     }
 
+    /* Creats a UserFactory, creates a UserRegsitrationForm and fills it with userData
+     * Then creates a UserEntity with the data and saves the user with FileService
+     * Uses assert to check type of result list, not more than one user, not null or empty */
     [Fact]
     public void Create_ShouldCreateUser()
     {
@@ -61,6 +64,8 @@ public class UserService_Tests
         Assert.NotEmpty(_users);
     }
 
+    /* Creates two Users and List<User> mocks the GetAll method
+     * Checks the result with asserts for type of result, how many users in list, not null and not empty list*/
     [Fact]
     public void GetAll_ShouldReturnAllUsers()
     {
@@ -101,6 +106,8 @@ public class UserService_Tests
         Assert.NotEmpty(result);
     }
 
+    /* Creates two users and List<User> and mocks the GetAll and ClearList methods
+     * Checks if the list has been emptied and result type */
     [Fact]
     public void ClearList_ShouldEmptyListOfUsers()
     {

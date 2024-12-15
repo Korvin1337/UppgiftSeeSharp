@@ -15,6 +15,9 @@ public class InputHandler_Tests
     /* Writing a test for GetInput method with the help of my consolewrapper which executes readline and write methods
      * This makes them mockable
      * ChatGpt 4 help me with this logic aswell as inspiration of previous tests made */
+    /* Creates a consolewrapper and a testPrompt. Mocks the ReadLine and Write methods
+     * Users InputHandler wuth the testPrompt and then compares it with the expected "Test Input" using asssert
+     * Finally checks if the Write and ReadLine methods has been run once */
     [Fact]
     public void GetInput_ShouldReturnUserInput()
     {

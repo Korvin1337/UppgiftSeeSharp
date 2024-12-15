@@ -11,7 +11,7 @@ namespace UppgiftSeeSharp.Tests.Models;
 public class UserEntity_Tests
 {
 
-    /* Creates a UserEntity and uses assert to compare the userEntity with the expected result */
+    /* Creates a UserEntity and uses assert to compare the userEntity with the expected result using asserts and Type */
     [Fact]
     public void User_ShouldCreateUserEntity()
     {

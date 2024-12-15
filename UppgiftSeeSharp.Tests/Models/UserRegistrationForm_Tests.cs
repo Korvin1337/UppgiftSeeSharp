@@ -11,7 +11,7 @@ namespace UppgiftSeeSharp.Tests.Models;
 public class UserRegistrationForm_Tests
 {
 
-    /* Creats a UserRegistrationForm and uses assert to compare the userRegistrationForm with the expected result */
+    /* Creats a UserRegistrationForm and uses assert to compare the userRegistrationForm with the expected result using asserts and Type */
     [Fact]
     public void User_ShouldCreateUserRegistrationForm()
     {

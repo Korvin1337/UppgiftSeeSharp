@@ -11,7 +11,7 @@ namespace UppgiftSeeSharp.Tests.Models;
 public class User_Tests
 {
 
-    /* Creates a user and uses assert to compare the user with the expected result */
+    /* Creates a user and uses assert to compare the user with the expected result using asserts and Type */
     [Fact]
     public void User_ShouldCreateUser()
     {

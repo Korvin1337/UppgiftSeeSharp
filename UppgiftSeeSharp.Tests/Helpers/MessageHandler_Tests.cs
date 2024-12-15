@@ -14,7 +14,9 @@ namespace UppgiftSeeSharp.Tests.Helpers;
 /* MessageHandler Tests made with the help of chatgpt 4o */
 public class MessageHandler_Tests
 {
-
+    /* Creating a console wrapper to be able to mock the the methods Clear, ReadKey and creates a testStringMessage and StringWriter and StringReader
+     * Then uses MessageHandler to compare the testStringMessage and console output
+     * Checks if Clear and ReadKey has both been run once */
     [Fact]
     public void ShowMessage_ShouldReturnAStringMessage()
     {
@@ -53,6 +55,8 @@ public class MessageHandler_Tests
         }
     }
 
+    /* Creates a user and a string that is how the user should be formatted
+     * Then uses the MessageHandler to compare the formattedUser with the testFormattedUser */
     [Fact]
     public void FormatUserDetails_ShouldReturnAFormattedUser()
     {
@@ -86,6 +90,8 @@ public class MessageHandler_Tests
         Assert.Equal(testFormattedUser, formattedUser);
     }
 
+    /* creates a user and a string format on for how the user should be formatted
+     * then uses the MessageHandler to compare the outputs of console and formatted string */
     [Fact]
     public void ShowUser_ShouldReturnConsoleWriteLineOfUser()
     {

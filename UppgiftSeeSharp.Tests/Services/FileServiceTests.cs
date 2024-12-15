@@ -75,6 +75,10 @@ public class FileServiceTests
         _fileServiceMock.Verify(fs => fs.SaveListToFile(It.Is<List<UserEntity>>(list => list.SequenceEqual(users))), Times.Once);
     }
 
+    /* Creates a list with UserEntities
+     * Uses fileservice to mock the LoadListFromFile<UserEntity> Returns users
+     * result uses fileservice to execute the LoadListFromFile method
+     * finally asserts that the mock has been run once, there is two users in result and is not null */
     [Fact]
     public void LoadListFromFile_ShouldReturnList()
     {
