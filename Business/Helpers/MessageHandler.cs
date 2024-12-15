@@ -15,6 +15,7 @@ public class MessageHandler(ConsoleWrapper consoleWrapper)
     private readonly ConsoleWrapper _consoleWrapper = consoleWrapper;
 
     /* General showMessage method instead by suggestion of ChatGPT 4 */
+    /* Calls the Console Methods WrireLine and clears the console with ConsoleWrapper and ReadKey */
     public void ShowMessage(string message)
     {
         _consoleWrapper.Clear();
@@ -25,6 +26,7 @@ public class MessageHandler(ConsoleWrapper consoleWrapper)
     /* By suggestion of CHATGPT 4o i need to format the user details in a seperate method,
      * This is to keep in line with the SRP so i move my formatting to this method and just calls
      * the formatting method from my showuser method instead */
+    /* Formats a user and returns the data */
     public string FormatUserDetails(User user)
     {
         return ($"Id: {user.Id}\n" +
@@ -35,6 +37,7 @@ public class MessageHandler(ConsoleWrapper consoleWrapper)
                 "");
     }
 
+    /* Console.WriteLine a user which has been formatted */
     public void ShowUser(User user)
     {
         Console.WriteLine(FormatUserDetails(user));

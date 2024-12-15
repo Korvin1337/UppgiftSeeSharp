@@ -2,7 +2,7 @@
 
 namespace Busniess.Helpers;
 
-/* Creates a unique GuId for each and every user that gets created */
+/* Creates and returns a unique GuId for each and every user that gets created */
 public class UniqueIdGenerator
 {
     public string GenerateUniqueId()

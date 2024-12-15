@@ -22,6 +22,7 @@ public class FileService : IFileService
         _errorLogger = errorLogger;
     }
 
+    /* Creates directory if not exists and saves the json file to the filepath */
     public void SaveListToFile<T>(List<T> list)
     {
         try
@@ -47,6 +48,7 @@ public class FileService : IFileService
      * Instead of only using UserEntity List like before,
      * It gave me examples of using List<T> syntax instead which i updated my code with,
      * This should make my code more reusable aswell for other "loads" in the future */
+    /* Loads file if exists, and deserialize the json then returns it */
     public List<T> LoadListFromFile<T>()
     {
         try

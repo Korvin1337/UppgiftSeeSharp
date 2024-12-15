@@ -27,7 +27,7 @@ public class UserService : IUserService
         _errorLogger = errorLogger;
     }
 
-    /* Creates a UserEntity with the help of injected dependecies, adds to _users and  calls on SavesUsersToFile */ 
+    /* Creates a UserEntity with the help of injected dependecies, adds to _users collection and calls on SavesUsersToFile */ 
     public bool Create(UserRegistrationForm form)
     {
         try
@@ -49,7 +49,7 @@ public class UserService : IUserService
         }
     }
 
-    /* Returns all users with the help of the userFactory */
+    /* Returns all users with the help of the userFactory, error with ErrorLogger */
     public IEnumerable<User> GetAll()
     {
         try
@@ -82,6 +82,7 @@ public class UserService : IUserService
        By making 2 seperate methods handling the saving and the loading part of the Service */
 
     /* Moving the logic of the loading part of my UserService to follow the SRP */
+    /* Loads list of UserEntities with FileService, error with ErrorLogger */
     public List<UserEntity> LoadUsersFromFile()
     {
         try

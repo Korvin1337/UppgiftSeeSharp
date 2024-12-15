@@ -11,6 +11,7 @@ namespace Business.Services;
 /* By the suggestion of ChatGPT 4o im making a service for userinputs,
  * This will be used in the menu in order to keep SRP
  * Im moving the userRegistration code here and using the inputhandler aswell for SRP */
+/* Gets the user input with InputHandler to fill out the UserRegistrationForm with the user Data */
 public class UserInputService(InputHandler inputHandler)
 {
     private readonly InputHandler _inputHandler = inputHandler;
