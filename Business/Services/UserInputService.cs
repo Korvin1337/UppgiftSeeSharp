@@ -15,7 +15,7 @@ public class UserInputService(InputHandler inputHandler)
 {
     private readonly InputHandler _inputHandler = inputHandler;
 
-    public UserRegistrationForm CollectUserData()
+    public virtual UserRegistrationForm CollectUserData()
     {
         return new UserRegistrationForm
         {

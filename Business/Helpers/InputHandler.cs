@@ -15,7 +15,7 @@ public class InputHandler(ConsoleWrapper consoleWrapper)
 
     /* Suggestion of CHATGPT 4o to make my prompts check for null or whitespace,
    and be able to loop until a desired input is made */
-    public string GetInput(string prompt)
+    public virtual string GetInput(string prompt)
     {
         string input;
         do
