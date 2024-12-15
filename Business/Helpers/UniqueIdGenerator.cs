@@ -2,6 +2,7 @@
 
 namespace Busniess.Helpers;
 
+/* Creates a unique GuId for each and every user that gets created */
 public class UniqueIdGenerator
 {
     public string GenerateUniqueId()
@@ -16,21 +17,3 @@ public class UniqueIdGenerator
         }
     }
 }
-
-/*
- *     public class UniqueIdService
-    {
-        public string GenerateUniqueId()
-        {
-            try
-            {
-                return UniqueIdGenerator.GenerateUniqueId();
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-                return "Error generating id";
-            }
-        }
-    }
-*/

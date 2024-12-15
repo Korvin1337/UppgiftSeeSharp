@@ -9,8 +9,10 @@ using System.Threading.Tasks;
 
 namespace UppgiftSeeSharp.Tests.Factories;
 
+/* UserFactory Tests made with the help of ChatGpt 4o */
 public class UserFactory_Tests
 {
+    /* Creates the userFactory and uses it to create a UserRegistrationForm and asserts the result type */
     [Fact]
     public void Create_ShouldReturnUserRegistraionForm()
     {
@@ -25,6 +27,7 @@ public class UserFactory_Tests
         Assert.IsType<UserRegistrationForm>(result);
     }
 
+    /* Creates a userFactory and fills a UserRegistrationForm with userData to create a UserEntity and asserts the result type */
     [Fact]
     public void Create_ShouldReturnUserEntity()
     {
@@ -52,6 +55,10 @@ public class UserFactory_Tests
         Assert.IsType<UserEntity>(result);
     }
 
+    /* Creates a userFactory and fills a UserRegistrationForm with userData,
+     * then create a UserEntity based on the data
+     * finally creates a User based on the data
+     * Asserts that all the information in the user is as expected and checks the type */
     [Fact]
     public void Create_ShouldReturnUser()
     {

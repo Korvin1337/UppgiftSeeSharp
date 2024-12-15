@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Business.Repositories;
 
+/* Not Yet Implemented */
 public class UserRepository
 {
     /*private readonly IFileService _fileService;

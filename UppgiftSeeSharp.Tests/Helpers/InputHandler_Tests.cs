@@ -9,6 +9,7 @@ using Moq;
 
 namespace UppgiftSeeSharp.Tests.Helpers;
 
+/* InputHandler Tests made with the help of chatgpt 4o */
 public class InputHandler_Tests
 {
     /* Writing a test for GetInput method with the help of my consolewrapper which executes readline and write methods

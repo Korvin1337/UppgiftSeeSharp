@@ -10,6 +10,7 @@ using Busniess.Helpers;
 
 namespace UppgiftSeeSharp.Tests.Helpers;
 
+/* ErrorLogger Tests made with the help of chatgpt 4o */
 public class ErrorLogger_Tests
 {
     /* With the help of chatgpt 4 i made a test for my ErrorLogger,

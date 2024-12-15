@@ -17,6 +17,7 @@ public class MenuDialogs(IUserService userService, InputHandler inputHandler, Me
     private readonly UserInputService _userInputService = userInputService;
 
 
+    /* Run the MainMenu */
     public void RunMenu()
     {
         while (true)
@@ -25,6 +26,9 @@ public class MenuDialogs(IUserService userService, InputHandler inputHandler, Me
         }
     }
 
+    /* A simple menu with a switch case
+     * Logs the options in the console and waits for the userinput with InputHandler passing it to the switch
+     * Runs the method for the choice made or a message with MessageHandler to ask for valid option */
     public void MainMenu()
     {
         Console.WriteLine("");
@@ -52,6 +56,10 @@ public class MenuDialogs(IUserService userService, InputHandler inputHandler, Me
         }
     }
 
+    /* Creates a user with the help of UserRegistrationForm
+     * UserInputService to collect all the information about the user
+     * Finally using the UserService to create the user
+     * MessageHandler handles showing messages */
     public void CreateUser()
     {
 
@@ -84,6 +92,8 @@ public class MenuDialogs(IUserService userService, InputHandler inputHandler, Me
         Console.ReadKey();
     }
 
+    /* using UserService to fetch all users
+     * using MessageHandler to "return" and correctly format the user in the console */
     public void ViewUsers()
     {
         var users = _userService.GetAll();
@@ -96,7 +106,8 @@ public class MenuDialogs(IUserService userService, InputHandler inputHandler, Me
         Console.ReadKey();
     }
 
-    /* Made the GetQuitOption method to move the input logic to a method to adhere to the SRP */
+    /* Made the GetQuitOption method to move the input logic to a method to adhere to the SRP
+     * Returns the input with the help of InputHandler */
     public string GetQuitOption()
     {
         return _inputHandler.GetInput("Do you want to exit? (y/n): ").ToLower();
@@ -104,8 +115,8 @@ public class MenuDialogs(IUserService userService, InputHandler inputHandler, Me
 
     /* Updating my Quit method to adhere to the SRP
      * With the help of CHATGPT4o,
-     * Basically im making it focus on only quitting instead of running the menu instead as before 
-       To accomplis this I instead use a bool method that can return true, false or rerun the quit method if invalid input */
+     * Finallydeciding to use a switch case for simpler code SRP
+     * Using MessageHandler to show messages and the GetQuitOption to get the user input */
     public void Quit()
     {
         Console.Clear();

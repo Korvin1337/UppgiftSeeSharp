@@ -2,6 +2,7 @@
 
 namespace Busniess.Models;
 
+/* UserRegistrationForm Class setting parameters/validation for userdata */
 public class UserRegistrationForm
 {
     [Required]

@@ -12,6 +12,7 @@ using Busniess.Helpers;
 
 namespace UppgiftSeeSharp.Tests.Services;
 
+/* Tests for UserService made with the help of ChatGpt4o and the school test lecture */
 public class UserService_Tests
 {
     private readonly Mock<IFileService> _fileServiceMock;

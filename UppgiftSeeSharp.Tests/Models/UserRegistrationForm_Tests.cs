@@ -7,9 +7,11 @@ using Busniess.Models;
 
 namespace UppgiftSeeSharp.Tests.Models;
 
+/* UserRegistrationForm Test made with the help of chatgpt4o */
 public class UserRegistrationForm_Tests
 {
 
+    /* Creats a UserRegistrationForm and uses assert to compare the userRegistrationForm with the expected result */
     [Fact]
     public void User_ShouldCreateUserRegistrationForm()
     {

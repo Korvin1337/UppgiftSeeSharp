@@ -7,9 +7,11 @@ using Busniess.Models;
 
 namespace UppgiftSeeSharp.Tests.Models;
 
+/* UserTest made with the help of chatgpt 4o */
 public class User_Tests
 {
 
+    /* Creates a user and uses assert to compare the user with the expected result */
     [Fact]
     public void User_ShouldCreateUser()
     {

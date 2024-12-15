@@ -27,6 +27,7 @@ public class UserService : IUserService
         _errorLogger = errorLogger;
     }
 
+    /* Creates a UserEntity with the help of injected dependecies, adds to _users and  calls on SavesUsersToFile */ 
     public bool Create(UserRegistrationForm form)
     {
         try
@@ -48,6 +49,7 @@ public class UserService : IUserService
         }
     }
 
+    /* Returns all users with the help of the userFactory */
     public IEnumerable<User> GetAll()
     {
         try
@@ -61,6 +63,7 @@ public class UserService : IUserService
         }
     }
 
+    /* Clears the list of users */
     public void ClearList()
     {
         try
@@ -92,6 +95,7 @@ public class UserService : IUserService
     }
 
     /* Moving the logic of the saving part of my UserService to follow the SRP */
+    /* Saves the users to file with the help of FileService */
     public void SaveUsersToFile()
     {
         try

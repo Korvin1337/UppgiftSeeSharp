@@ -7,9 +7,11 @@ using Busniess.Models;
 
 namespace UppgiftSeeSharp.Tests.Models;
 
+/* UserEntity Test made with the help of chatgpt 4o */
 public class UserEntity_Tests
 {
 
+    /* Creates a UserEntity and uses assert to compare the userEntity with the expected result */
     [Fact]
     public void User_ShouldCreateUserEntity()
     {
