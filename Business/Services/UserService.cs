@@ -107,4 +107,31 @@ public class UserService : IUserService
             _errorLogger.ErrorMessage($"Error saving the users to file: {ex.Message}");
         }
     }
+
+    /* Created with help of chatgpt 4o
+     * Finding the user with the help of their Id and then updates the data and saves to the file */
+    public bool Update(User user)
+    {
+        try
+        {
+            var existingUser = _users.FirstOrDefault(u => u.Id == user.Id);
+            if (existingUser != null)
+            {
+                existingUser.FirstName = user.FirstName;
+                existingUser.LastName = user.LastName;
+                existingUser.Email = user.Email;
+                existingUser.PhoneNumber = user.PhoneNumber;
+                existingUser.Address = user.Address;
+                existingUser.PostalNumber = user.PostalNumber;
+                existingUser.City = user.City;
+            }
+
+            SaveUsersToFile();
+            return true;
+        } catch (Exception ex)
+        {
+            _errorLogger.ErrorMessage($"Error updating the user: {ex.Message}");
+            return false;
+        } 
+    }
 }

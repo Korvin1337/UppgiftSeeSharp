@@ -1,6 +1,8 @@
-﻿namespace Business.Interfaces;
+﻿using Busniess.Models;
+
+namespace Business.Interfaces;
 
 /* IUserService using ClearList, Create and GetAll */
-public interface IUserService: IUserClearList, IUserCreate, IUserGetAll
+public interface IUserService : IUserClearList, IUserCreate, IUserGetAll, IUserUpdate
 {
 }
