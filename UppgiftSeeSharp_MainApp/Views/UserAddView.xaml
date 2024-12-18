@@ -23,24 +23,31 @@
             <StackPanel Grid.Row="1" Margin="0 0 0 0">
                 <TextBlock Text="First Name"  Margin="0 5" Style="{StaticResource TextBlockStyle}"></TextBlock>
                 <TextBox Text="{Binding User.FirstName, UpdateSourceTrigger=PropertyChanged}" Margin="0 2 0 10" Style="{StaticResource TextBoxStyle}"></TextBox>
+                <TextBlock Text="{Binding WarningMessage, FallbackValue='You must enter a first name'}" Style="{StaticResource TextBlockWarning}"></TextBlock>
 
                 <TextBlock Text="Last Name"  Margin="0 5" Style="{StaticResource TextBlockStyle}"></TextBlock>
                 <TextBox Text="{Binding User.LastName, UpdateSourceTrigger=PropertyChanged}" Margin="0 2 0 10" Style="{StaticResource TextBoxStyle}"></TextBox>
+                <TextBlock Text="{Binding WarningMessage, FallbackValue='You must enter a last name'}" Style="{StaticResource TextBlockWarning}"></TextBlock>
 
                 <TextBlock Text="Email"  Margin="0 5" Style="{StaticResource TextBlockStyle}"></TextBlock>
                 <TextBox Text="{Binding User.Email, UpdateSourceTrigger=PropertyChanged}" Margin="0 2 0 10" Style="{StaticResource TextBoxStyle}"></TextBox>
+                <TextBlock Text="{Binding WarningMessage, FallbackValue='You must enter a email'}" Style="{StaticResource TextBlockWarning}"></TextBlock>
 
                 <TextBlock Text="Phone Number" Margin="0 5" Style="{StaticResource TextBlockStyle}"></TextBlock>
                 <TextBox Text="{Binding User.PhoneNumber, UpdateSourceTrigger=PropertyChanged}" Margin="0 2 0 10" Style="{StaticResource TextBoxStyle}"></TextBox>
+                <TextBlock Text="{Binding WarningMessage, FallbackValue='You must enter a phone number'}" Style="{StaticResource TextBlockWarning}"></TextBlock>
 
                 <TextBlock Text="Address"  Margin="0 5" Style="{StaticResource TextBlockStyle}"></TextBlock>
                 <TextBox Text="{Binding User.Address, UpdateSourceTrigger=PropertyChanged}" Margin="0 2 0 10" Style="{StaticResource TextBoxStyle}"></TextBox>
+                <TextBlock Text="{Binding WarningMessage, FallbackValue='You must enter a first name'}" Style="{StaticResource TextBlockWarning}"></TextBlock>
 
                 <TextBlock Text="Postal Number"  Margin="0 5" Style="{StaticResource TextBlockStyle}"></TextBlock>
                 <TextBox Text="{Binding User.PostalNumber, UpdateSourceTrigger=PropertyChanged}" Margin="0 2 0 10" Style="{StaticResource TextBoxStyle}"></TextBox>
+                <TextBlock Text="{Binding WarningMessage, FallbackValue='You must enter a postal number'}" Style="{StaticResource TextBlockWarning}"></TextBlock>
 
                 <TextBlock Text="City"  Margin="0 5" Style="{StaticResource TextBlockStyle}"></TextBlock>
                 <TextBox Text="{Binding User.City, UpdateSourceTrigger=PropertyChanged}" Margin="0 2 0 10" Style="{StaticResource TextBoxStyle}"></TextBox>
+                <TextBlock Text="{Binding WarningMessage, FallbackValue='You must enter a city'}" Style="{StaticResource TextBlockWarning}"></TextBlock>
             </StackPanel>
 
             <StackPanel Grid.Row="2">

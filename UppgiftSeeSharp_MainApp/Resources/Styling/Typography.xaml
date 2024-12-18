@@ -37,4 +37,40 @@
         <Setter Property="FontSize" Value="14"></Setter>
     </Style>
 
+    <Style x:Key="TextBlockWarning" TargetType="TextBlock">
+        <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        <Setter Property="TextWrapping" Value="Wrap"></Setter>
+        <Setter Property="TextAlignment" Value="Center"></Setter>
+        <Setter Property="FontSize" Value="14"></Setter>
+        <Setter Property="FontWeight" Value="Medium"></Setter>
+        <Setter Property="Foreground" Value="#EA79AC"></Setter>
+        <Setter Property="Height" Value="50"></Setter>
+        <Setter Property="Visibility" Value="Collapsed" />
+        <!-- Chat Gpt Show Only If no Input has been made for fields -->
+        <Style.Triggers>
+            <!-- Trigger when User.Data is empty -->
+            <DataTrigger Binding="{Binding User.FirstName}" Value="">
+                <Setter Property="Visibility" Value="Visible" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding User.LastName}" Value="">
+                <Setter Property="Visibility" Value="Visible" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding User.Email}" Value="">
+                <Setter Property="Visibility" Value="Visible" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding User.PhoneNumber}" Value="">
+                <Setter Property="Visibility" Value="Visible" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding User.Address}" Value="">
+                <Setter Property="Visibility" Value="Visible" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding User.PostalNumber}" Value="">
+                <Setter Property="Visibility" Value="Visible" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding User.City}" Value="">
+                <Setter Property="Visibility" Value="Visible" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
 </ResourceDictionary>
