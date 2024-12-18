@@ -9,6 +9,9 @@ using System.Windows.Data;
 
 namespace UppgiftSeeSharp_MainApp.Converters;
 
+/* Made with help of chatgpt 4o 
+ * Here we implement the interface IValueConverter 
+ * This is used to check the visiblity */
 public class EmptyStringToVisibilityConverter : IValueConverter
 {
     public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

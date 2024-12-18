@@ -59,6 +59,9 @@ public partial class UserAddViewModel(IUserService userService, IServiceProvider
     }
 
     /* Validate Adding User, With help and suggested by CHATGPT 4o */
+    /* If something fails the isValid is flagged as false, 
+     * A message is set below the input field by assigning a value to their warning 
+     * It gets displayed if its not empty */
     public bool ValidateUserForm()
     {
         bool isValid = true;

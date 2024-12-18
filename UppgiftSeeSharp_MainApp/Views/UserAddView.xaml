@@ -10,7 +10,11 @@
              
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="400">
-
+    
+    <!-- Setting Error messages with the help of chatgpt
+         Cant set multiple datacontext objects so i set this resource here instead with usercontrol.resources
+         In my useraddviewmodel i added logic for checking the input values for empty or null and set a message if something is not valid 
+    -->
     <UserControl.Resources>
         <resources:EmptyStringToVisibilityConverter x:Key="EmptyStringToVisibilityConverter"></resources:EmptyStringToVisibilityConverter>
     </UserControl.Resources>
