@@ -47,4 +47,17 @@ public partial class MainWindow : Window
             }
         }
     }
+
+    private void TopBar_MouseDown(object sender, MouseButtonEventArgs e)
+    {
+        if (e.ChangedButton == MouseButton.Left)
+        {
+            DragMove();
+        }
+    }
+
+    private void ExitButton_Click(Object sender, RoutedEventArgs e)
+    {
+        Environment.Exit(0);
+    }
 }

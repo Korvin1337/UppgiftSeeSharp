@@ -20,33 +20,46 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
+
     <Window.Resources>
         <converters:ActivityStatusConverter x:Key="ActivityStatusConverter"></converters:ActivityStatusConverter>
     </Window.Resources>
 
-    <Grid>
-        <ContentControl Content="{Binding CurrentViewModel}">
-            <ContentControl.Resources>
+    <Border Background="#333333" CornerRadius="25">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
 
-                <DataTemplate DataType="{x:Type viewmodels:UserListViewModel}">
-                    <views:UserListView></views:UserListView>
-                </DataTemplate>
+            <Grid x:Name="TopBar" Grid.Row="0" Background="Transparent" MouseDown="TopBar_MouseDown">
+                <Button
+                    Click="ExitButton_Click"
+                    Style="{StaticResource ExitButton}">
+                </Button>
+            </Grid>
 
-                <DataTemplate DataType="{x:Type viewmodels:UserAddViewModel}">
-                    <views:UserAddView></views:UserAddView>
-                </DataTemplate>
+            <ContentControl Grid.Row="1" Content="{Binding CurrentViewModel}">
+                <ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type viewmodels:UserListViewModel}">
+                        <views:UserListView></views:UserListView>
+                    </DataTemplate>
 
-                <DataTemplate DataType="{x:Type viewmodels:UserDetailsViewModel}">
-                    <views:UserDetailsView></views:UserDetailsView>
-                </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:UserAddViewModel}">
+                        <views:UserAddView></views:UserAddView>
+                    </DataTemplate>
 
-                <DataTemplate DataType="{x:Type viewmodels:UserEditViewModel}">
-                    <views:UserEditView></views:UserEditView>
-                </DataTemplate>
+                    <DataTemplate DataType="{x:Type viewmodels:UserDetailsViewModel}">
+                        <views:UserDetailsView></views:UserDetailsView>
+                    </DataTemplate>
 
-            </ContentControl.Resources>
+                    <DataTemplate DataType="{x:Type viewmodels:UserEditViewModel}">
+                        <views:UserEditView></views:UserEditView>
+                    </DataTemplate>
 
-        </ContentControl>
-    </Grid>
+                </ContentControl.Resources>
+            </ContentControl>
+        </Grid>
+    </Border>
 
 </Window>
