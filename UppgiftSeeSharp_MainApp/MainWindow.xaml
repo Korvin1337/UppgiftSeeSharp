@@ -23,6 +23,7 @@
 
     <Window.Resources>
         <converters:ActivityStatusConverter x:Key="ActivityStatusConverter"></converters:ActivityStatusConverter>
+        <converters:EmptyStringToVisibilityConverter x:Key="EmptyStringToVisibilityConverter"></converters:EmptyStringToVisibilityConverter>
     </Window.Resources>
 
     <Border Background="#333333" CornerRadius="25">

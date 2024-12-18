@@ -4,12 +4,18 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UppgiftSeeSharp_MainApp.Views"
-             
+             xmlns:resources="clr-namespace:UppgiftSeeSharp_MainApp.Converters"
              xmlns:viewmodels="clr-namespace:UppgiftSeeSharp_MainApp.ViewModels"
              d:DataContext="{d:DesignInstance Type=viewmodels:UserAddViewModel}"
              
              mc:Ignorable="d" 
              d:DesignHeight="700" d:DesignWidth="400">
+
+    <UserControl.Resources>
+        <resources:EmptyStringToVisibilityConverter x:Key="EmptyStringToVisibilityConverter"></resources:EmptyStringToVisibilityConverter>
+    </UserControl.Resources>
+
+
     <Border Background="#333333" CornerRadius="0 0 25 25">
         <Grid Margin="10" Background="#333333">
             <Grid.RowDefinitions>
@@ -23,31 +29,33 @@
             <StackPanel Grid.Row="1" Margin="0 0 0 0">
                 <TextBlock Text="First Name"  Margin="0 5" Style="{StaticResource TextBlockStyle}" FontFamily="{StaticResource exocet-heavy}"></TextBlock>
                 <TextBox Text="{Binding User.FirstName, UpdateSourceTrigger=PropertyChanged}" Margin="0 2 0 10" Style="{StaticResource TextBoxStyle}"></TextBox>
-                <TextBlock Text="{Binding WarningMessage, FallbackValue='You must enter a first name'}" Style="{StaticResource TextBlockWarning}"></TextBlock>
+                <TextBlock Text="{Binding FirstNameWarning}" Style="{StaticResource TextBlockWarning}" Visibility="{Binding FirstNameWarning, Converter={StaticResource EmptyStringToVisibilityConverter}}"></TextBlock>
+
+                <!-- <TextBlock Text="{Binding WarningMessage, FallbackValue='You must enter a first name'}" Style="{StaticResource TextBlockWarning}"></TextBlock>-->
 
                 <TextBlock Text="Last Name"  Margin="0 5" Style="{StaticResource TextBlockStyle}" FontFamily="{StaticResource exocet-heavy}"></TextBlock>
                 <TextBox Text="{Binding User.LastName, UpdateSourceTrigger=PropertyChanged}" Margin="0 2 0 10" Style="{StaticResource TextBoxStyle}"></TextBox>
-                <TextBlock Text="{Binding WarningMessage, FallbackValue='You must enter a last name'}" Style="{StaticResource TextBlockWarning}"></TextBlock>
+                <TextBlock Text="{Binding LastNameWarning}" Style="{StaticResource TextBlockWarning}" Visibility="{Binding LastNameWarning, Converter={StaticResource EmptyStringToVisibilityConverter}}"></TextBlock>
 
                 <TextBlock Text="Email"  Margin="0 5" Style="{StaticResource TextBlockStyle}" FontFamily="{StaticResource exocet-heavy}"></TextBlock>
                 <TextBox Text="{Binding User.Email, UpdateSourceTrigger=PropertyChanged}" Margin="0 2 0 10" Style="{StaticResource TextBoxStyle}"></TextBox>
-                <TextBlock Text="{Binding WarningMessage, FallbackValue='You must enter a email'}" Style="{StaticResource TextBlockWarning}"></TextBlock>
+                <TextBlock Text="{Binding EmailWarning}" Style="{StaticResource TextBlockWarning}" Visibility="{Binding EmailWarning, Converter={StaticResource EmptyStringToVisibilityConverter}}"></TextBlock>
 
                 <TextBlock Text="Phone Number" Margin="0 5" Style="{StaticResource TextBlockStyle}" FontFamily="{StaticResource exocet-heavy}"></TextBlock>
                 <TextBox Text="{Binding User.PhoneNumber, UpdateSourceTrigger=PropertyChanged}" Margin="0 2 0 10" Style="{StaticResource TextBoxStyle}"></TextBox>
-                <TextBlock Text="{Binding WarningMessage, FallbackValue='You must enter a phone number'}" Style="{StaticResource TextBlockWarning}"></TextBlock>
+                <TextBlock Text="{Binding PhoneNumber}" Style="{StaticResource TextBlockWarning}" Visibility="{Binding PhoneNumberWarning, Converter={StaticResource EmptyStringToVisibilityConverter}}"></TextBlock>
 
                 <TextBlock Text="Address"  Margin="0 5" Style="{StaticResource TextBlockStyle}" FontFamily="{StaticResource exocet-heavy}"></TextBlock>
                 <TextBox Text="{Binding User.Address, UpdateSourceTrigger=PropertyChanged}" Margin="0 2 0 10" Style="{StaticResource TextBoxStyle}"></TextBox>
-                <TextBlock Text="{Binding WarningMessage, FallbackValue='You must enter a first name'}" Style="{StaticResource TextBlockWarning}"></TextBlock>
+                <TextBlock Text="{Binding AddressWarning}" Style="{StaticResource TextBlockWarning}" Visibility="{Binding AddressWarning, Converter={StaticResource EmptyStringToVisibilityConverter}}"></TextBlock>
 
                 <TextBlock Text="Postal Number"  Margin="0 5" Style="{StaticResource TextBlockStyle}" FontFamily="{StaticResource exocet-heavy}"></TextBlock>
                 <TextBox Text="{Binding User.PostalNumber, UpdateSourceTrigger=PropertyChanged}" Margin="0 2 0 10" Style="{StaticResource TextBoxStyle}"></TextBox>
-                <TextBlock Text="{Binding WarningMessage, FallbackValue='You must enter a postal number'}" Style="{StaticResource TextBlockWarning}"></TextBlock>
+                <TextBlock Text="{Binding PostalNumberWarning}" Style="{StaticResource TextBlockWarning}" Visibility="{Binding PostalNumberWarning, Converter={StaticResource EmptyStringToVisibilityConverter}}"></TextBlock>
 
                 <TextBlock Text="City"  Margin="0 5" Style="{StaticResource TextBlockStyle}" FontFamily="{StaticResource exocet-heavy}"></TextBlock>
                 <TextBox Text="{Binding User.City, UpdateSourceTrigger=PropertyChanged}" Margin="0 2 0 10" Style="{StaticResource TextBoxStyle}"></TextBox>
-                <TextBlock Text="{Binding WarningMessage, FallbackValue='You must enter a city'}" Style="{StaticResource TextBlockWarning}"></TextBlock>
+                <TextBlock Text="{Binding CityWarning}" Style="{StaticResource TextBlockWarning}" Visibility="{Binding CityWarning, Converter={StaticResource EmptyStringToVisibilityConverter}}"></TextBlock>
             </StackPanel>
 
             <StackPanel Grid.Row="2">

@@ -24,7 +24,23 @@ public partial class UserAddViewModel(IUserService userService, IServiceProvider
     private string _title = "Add New User";
 
     [ObservableProperty]
-    private string _warningMessage = string.Empty;
+    private string _firstNameWarning = string.Empty;
+
+    [ObservableProperty]
+    private string _lastNameWarning = string.Empty;
+
+    [ObservableProperty]
+    private string _emailWarning = string.Empty;
+
+    [ObservableProperty]
+    private string _phoneNumberWarning = string.Empty;
+
+    [ObservableProperty]
+    private string _addressWarning = string.Empty;
+
+    [ObservableProperty]
+    private string _postalNumberWarning = string.Empty;
+
 
     [RelayCommand]
     private void Save()
@@ -45,44 +61,63 @@ public partial class UserAddViewModel(IUserService userService, IServiceProvider
     /* Validate Adding User, With help and suggested by CHATGPT 4o */
     public bool ValidateUserForm()
     {
+        bool isValid = true;
+
         if (string.IsNullOrWhiteSpace(User.FirstName))
         {
-            WarningMessage = "First Name is required.";
-            return false;
+            FirstNameWarning = "First Name is required.";
+            isValid = false;
+        } else
+        {
+            FirstNameWarning = string.Empty;
         }
 
         if (string.IsNullOrWhiteSpace(User.LastName))
         {
-            WarningMessage = "Last Name is required.";
-            return false;
+            LastNameWarning = "Last Name is required.";
+            isValid = false;
+        } else
+        {
+            LastNameWarning = string.Empty;
         }
 
         if (string.IsNullOrWhiteSpace(User.Email))
         {
-            WarningMessage = "Enail is required.";
-            return false;
+            EmailWarning = "Enail is required.";
+            isValid = false;
+        } else
+        {
+            EmailWarning = string.Empty;
         }
 
         if (string.IsNullOrWhiteSpace(User.PhoneNumber))
         {
-            WarningMessage = "PhoneNumber is required.";
-            return false;
+            PhoneNumberWarning = "PhoneNumber is required.";
+            isValid = false;
+        } else
+        {
+            PhoneNumberWarning = string.Empty;
         }
 
         if (string.IsNullOrWhiteSpace(User.Address))
         {
-            WarningMessage = "Address is required.";
-            return false;
+            AddressWarning = "Address is required.";
+            isValid = false;
+        } else
+        {
+            AddressWarning = string.Empty;
         }
 
         if (string.IsNullOrWhiteSpace(User.PostalNumber))
         {
-            WarningMessage = "Postal Number is required.";
-            return false;
+            PostalNumberWarning = "Postal Number is required.";
+            isValid = false;
+        } else
+        {
+            PostalNumberWarning = string.Empty;
         }
 
-        WarningMessage = string.Empty;
-        return true;
+        return isValid;
     }
 
     [RelayCommand]

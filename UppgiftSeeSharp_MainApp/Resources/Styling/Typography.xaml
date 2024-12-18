@@ -46,9 +46,7 @@
         <Setter Property="Foreground" Value="#EA79AC"></Setter>
         <Setter Property="Height" Value="50"></Setter>
         <Setter Property="Visibility" Value="Collapsed" />
-        <!-- Chat Gpt Show Only If no Input has been made for fields -->
         <Style.Triggers>
-            <!-- Trigger when User.Data is empty -->
             <DataTrigger Binding="{Binding User.FirstName}" Value="">
                 <Setter Property="Visibility" Value="Visible" />
             </DataTrigger>
