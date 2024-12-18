@@ -2,6 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <FontFamily x:Key="exocet-heavy">pack://application:,,,/Resources/Fonts/#Exocet</FontFamily>
+    <FontFamily x:Key="font-awesome">pack://application:,,,/Resources/Fonts/#Font Awesome 6 Free Solid</FontFamily>
     
     <!-- Light same name as heavy 
     <FontFamily x:Key="exocet-light">pack://application:,,,/Resources/Fonts/#Exocet</FontFamily> -->
