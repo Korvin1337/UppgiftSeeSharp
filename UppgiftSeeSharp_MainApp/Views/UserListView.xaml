@@ -25,10 +25,10 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Grid.Column="0" Text="User List" FontSize="20" FontWeight="Bold"></TextBlock>
-                <Button Grid.Column="1"  Command="{Binding GoToAddUserCommand}" Content="&#xE710;" FontFamily="Segoe MDL2 Assets" Padding="7 0"></Button>
+                <Button Grid.Column="1"  Command="{Binding GoToAddUserCommand}" Content="&#xE710;" FontFamily="Segoe MDL2 Assets" Padding="7 0" Style="{StaticResource StandardButton}"></Button>
             </Grid>
 
-            <ListView Grid.Row="1" ItemsSource="{Binding Users}" Margin="0 20 0 0" HorizontalContentAlignment="Stretch">
+            <ListView Grid.Row="1" ItemsSource="{Binding Users}" Margin="0 20 0 0" HorizontalContentAlignment="Stretch" Background="#333333">
                 <ListView.ItemTemplate>
                     <DataTemplate DataType="models:User">
                         <Grid>

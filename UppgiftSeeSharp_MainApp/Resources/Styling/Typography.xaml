@@ -1,4 +1,13 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Title Text -->
+    <Style x:Key="TitleText" TargetType="TextBlock">
+        <Setter Property="TextAlignment" Value="Center"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        <Setter Property="Foreground" Value="#9FABBD"></Setter>
+        <Setter Property="FontSize" Value="24"></Setter>
+    </Style>
+    
     
 </ResourceDictionary>

@@ -45,8 +45,8 @@
             </StackPanel>
 
             <StackPanel Grid.Row="2">
-                <Button Command="{Binding GoToEditViewCommand}" Content="Edit" Margin="0 10 0 5" Padding="5"></Button>
-                <Button Command="{Binding CancelCommand}" Content="Cancel" Margin="0 10 0 5" Padding="5"></Button>
+                <Button Command="{Binding GoToEditViewCommand}" Content="Edit" Margin="0 10 0 5" Padding="5" Style="{StaticResource StandardButton}"></Button>
+                <Button Command="{Binding CancelCommand}" Content="Cancel" Margin="0 10 0 5" Padding="5" Style="{StaticResource StandardButton}"></Button>
             </StackPanel>
         </Grid>
     </Border>
