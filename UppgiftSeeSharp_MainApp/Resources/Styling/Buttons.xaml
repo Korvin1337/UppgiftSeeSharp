@@ -59,16 +59,18 @@
                             Padding="{TemplateBinding Padding}"
                             CornerRadius="25"
                             >
+                        <StackPanel>
                             <TextBlock x:Name="ContentText"
-                                   Text="{TemplateBinding Content}"
-                                   FontSize="{TemplateBinding FontSize}"
-                                   FontWeight="{TemplateBinding FontWeight}"
-                                   FontFamily="{TemplateBinding FontFamily}"
-                                   HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"
-                                   >
-                            
+                                       Text="{TemplateBinding Content}"
+                                       FontSize="{TemplateBinding FontSize}"
+                                       FontWeight="{TemplateBinding FontWeight}"
+                                       FontFamily="{TemplateBinding FontFamily}"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       >
+                                       <TextBlock Text="&#xf300;" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="5 0 5 0" FontSize="20"></TextBlock>
                             </TextBlock>
+                        </StackPanel>
                     </Border>
 
                     <ControlTemplate.Triggers>

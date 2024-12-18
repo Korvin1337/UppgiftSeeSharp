@@ -22,25 +22,25 @@
 
             <StackPanel Grid.Row="1" Margin="0 20 0 0">
 
-                <TextBlock Text="{Binding Headline, FallbackValue='Edit User'}" Style="{StaticResource TextBlockStyle}" Margin="0 5"></TextBlock>
+                <TextBlock Text="{Binding Headline, FallbackValue='Edit User'}" Style="{StaticResource TextBlockStyle}" FontFamily="{StaticResource exocet-heavy}" Margin="0 5"></TextBlock>
                 <TextBox Text="{Binding User.FirstName, UpdateSourceTrigger=PropertyChanged}" Margin="0 2" Style="{StaticResource TextBoxStyle}"></TextBox>
 
-                <TextBlock Text="Last Name" Style="{StaticResource TextBlockStyle}" Margin="0 5"></TextBlock>
+                <TextBlock Text="Last Name" Style="{StaticResource TextBlockStyle}" FontFamily="{StaticResource exocet-heavy}" Margin="0 5"></TextBlock>
                 <TextBox Text="{Binding User.LastName, UpdateSourceTrigger=PropertyChanged}" Margin="0 2" Style="{StaticResource TextBoxStyle}"></TextBox>
 
-                <TextBlock Text="Email" Style="{StaticResource TextBlockStyle}" Margin="0 5"></TextBlock>
+                <TextBlock Text="Email" Style="{StaticResource TextBlockStyle}" FontFamily="{StaticResource exocet-heavy}" Margin="0 5"></TextBlock>
                 <TextBox Text="{Binding User.Email, UpdateSourceTrigger=PropertyChanged}" Margin="0 2" Style="{StaticResource TextBoxStyle}"></TextBox>
 
-                <TextBlock Text="Phone Number" Style="{StaticResource TextBlockStyle}" Margin="0 5"></TextBlock>
+                <TextBlock Text="Phone Number" Style="{StaticResource TextBlockStyle}" FontFamily="{StaticResource exocet-heavy}" Margin="0 5"></TextBlock>
                 <TextBox Text="{Binding User.PhoneNumber, UpdateSourceTrigger=PropertyChanged}" Margin="0 2" Style="{StaticResource TextBoxStyle}"></TextBox>
 
-                <TextBlock Text="Address" Style="{StaticResource TextBlockStyle}" Margin="0 5"></TextBlock>
+                <TextBlock Text="Address" Style="{StaticResource TextBlockStyle}" FontFamily="{StaticResource exocet-heavy}" Margin="0 5"></TextBlock>
                 <TextBox Text="{Binding User.Address, UpdateSourceTrigger=PropertyChanged}" Margin="0 2" Style="{StaticResource TextBoxStyle}"></TextBox>
 
-                <TextBlock Text="Postal Number" Style="{StaticResource TextBlockStyle}" Margin="0 5"></TextBlock>
+                <TextBlock Text="Postal Number" Style="{StaticResource TextBlockStyle}" FontFamily="{StaticResource exocet-heavy}" Margin="0 5"></TextBlock>
                 <TextBox Text="{Binding User.PostalNumber, UpdateSourceTrigger=PropertyChanged}" Margin="0 2" Style="{StaticResource TextBoxStyle}"></TextBox>
 
-                <TextBlock Text="City" Style="{StaticResource TextBlockStyle}" Margin="0 5"></TextBlock>
+                <TextBlock Text="City" Style="{StaticResource TextBlockStyle}" FontFamily="{StaticResource exocet-heavy}" Margin="0 5"></TextBlock>
                 <TextBox Text="{Binding User.City, UpdateSourceTrigger=PropertyChanged}" Margin="0 2" Style="{StaticResource TextBoxStyle}"></TextBox>
             </StackPanel>
 
