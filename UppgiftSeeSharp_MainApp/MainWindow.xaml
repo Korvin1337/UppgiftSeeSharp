@@ -8,7 +8,7 @@
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         AllowsTransparency="True"
-        Background="#CCCCCC"
+        Background="Transparent"
         
         
         xmlns:models="clr-namespace:UppgiftSeeSharp_MainApp.Models"
@@ -18,7 +18,7 @@
         xmlns:converters="clr-namespace:UppgiftSeeSharp_MainApp.Converters"
         
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="700" Width="400">
 
 
     <Window.Resources>
