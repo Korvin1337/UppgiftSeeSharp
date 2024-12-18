@@ -21,27 +21,27 @@
 
             <TextBlock Text="{Binding Headline, FallbackValue='User Details'}" Grid.Row="0" Grid.Column="0" Style="{StaticResource HeadlineText}"></TextBlock>
 
-            <StackPanel Grid.Row="1" Margin="0 20 0 0">
-                <TextBlock Text="First name"></TextBlock>
-                <TextBlock Text="{Binding User.FirstName}" Margin="0,0,0,10" Padding="4"></TextBlock>
+            <StackPanel Grid.Row="1" Margin="0 0 0 0">
+                <TextBlock Text="First name" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                <TextBlock Text="{Binding User.FirstName}" Margin="0,0,0,20" Padding="4" Style="{StaticResource TextBlockDetails}"></TextBlock>
 
-                <TextBlock Text="Last name"></TextBlock>
-                <TextBlock Text="{Binding User.LastName}" Margin="0,0,0,10" Padding="4"></TextBlock>
+                <TextBlock Text="Last name" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                <TextBlock Text="{Binding User.LastName}" Margin="0,0,0,20" Padding="4" Style="{StaticResource TextBlockDetails}"></TextBlock>
 
-                <TextBlock Text="Email"></TextBlock>
-                <TextBlock Text="{Binding User.Email}" Margin="0,0,0,10" Padding="4"></TextBlock>
+                <TextBlock Text="Email" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                <TextBlock Text="{Binding User.Email}" Margin="0,0,0,20" Padding="4" Style="{StaticResource TextBlockDetails}"></TextBlock>
 
-                <TextBlock Text="Phone Number"></TextBlock>
-                <TextBlock Text="{Binding User.PhoneNumber}" Margin="0,0,0,10" Padding="4"></TextBlock>
+                <TextBlock Text="Phone Number" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                <TextBlock Text="{Binding User.PhoneNumber}" Margin="0,0,0,20" Padding="4" Style="{StaticResource TextBlockDetails}"></TextBlock>
 
-                <TextBlock Text="Address"></TextBlock>
-                <TextBlock Text="{Binding User.Address}" Margin="0,0,0,10" Padding="4"></TextBlock>
+                <TextBlock Text="Address" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                <TextBlock Text="{Binding User.Address}" Margin="0,0,0,20" Padding="4" Style="{StaticResource TextBlockDetails}"></TextBlock>
 
-                <TextBlock Text="Postal Number"></TextBlock>
-                <TextBlock Text="{Binding User.PostalNumber}" Margin="0,0,0,10" Padding="4"></TextBlock>
+                <TextBlock Text="Postal Number" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                <TextBlock Text="{Binding User.PostalNumber}" Margin="0,0,0,20" Padding="4" Style="{StaticResource TextBlockDetails}"></TextBlock>
 
-                <TextBlock Text="City"></TextBlock>
-                <TextBlock Text="{Binding User.City}" Margin="0,0,0,10" Padding="4"></TextBlock>
+                <TextBlock Text="City" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                <TextBlock Text="{Binding User.City}" Margin="0,0,0,20" Padding="4" Style="{StaticResource TextBlockDetails}"></TextBlock>
             </StackPanel>
 
             <StackPanel Grid.Row="2">

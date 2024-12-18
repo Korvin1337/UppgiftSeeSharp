@@ -38,8 +38,8 @@
                             </Grid.ColumnDefinitions>
 
                             <StackPanel Grid.Column="0">
-                                <TextBlock Text="{Binding FirstName}"></TextBlock>
-                                <TextBlock Text="{Binding Email}" FontSize="10"></TextBlock>
+                                <TextBlock Text="{Binding FirstName}" Style="{StaticResource TextBlockStyle}" Margin="2" Padding="4"></TextBlock>
+                                <TextBlock Text="{Binding Email}"  Style="{StaticResource TextBlockStyle}"  Margin="2" Padding="4"></TextBlock>
                             </StackPanel>
 
                             <StackPanel Grid.Column="1" Orientation="Horizontal">

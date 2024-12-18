@@ -20,27 +20,27 @@
 
             <TextBlock Text="{Binding Headline, FallbackValue='New User'}" Grid.Row="0" Grid.Column="0" Style="{StaticResource HeadlineText}"></TextBlock>
 
-            <StackPanel Grid.Row="1" Margin="0 20 0 0">
-                <TextBlock Text="First Name" FontSize="12" FontWeight="DemiBold" Margin="0 5"></TextBlock>
-                <TextBox Text="{Binding User.FirstName, UpdateSourceTrigger=PropertyChanged}" Margin="0 2"></TextBox>
+            <StackPanel Grid.Row="1" Margin="0 0 0 0">
+                <TextBlock Text="First Name"  Margin="0 5" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                <TextBox Text="{Binding User.FirstName, UpdateSourceTrigger=PropertyChanged}" Margin="0 2 0 10" Style="{StaticResource TextBoxStyle}"></TextBox>
 
-                <TextBlock Text="Last Name" FontSize="12" FontWeight="DemiBold" Margin="0 5"></TextBlock>
-                <TextBox Text="{Binding User.LastName, UpdateSourceTrigger=PropertyChanged}" Margin="0 2"></TextBox>
+                <TextBlock Text="Last Name"  Margin="0 5" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                <TextBox Text="{Binding User.LastName, UpdateSourceTrigger=PropertyChanged}" Margin="0 2 0 10" Style="{StaticResource TextBoxStyle}"></TextBox>
 
-                <TextBlock Text="Email" FontSize="12" FontWeight="DemiBold" Margin="0 5"></TextBlock>
-                <TextBox Text="{Binding User.Email, UpdateSourceTrigger=PropertyChanged}" Margin="0 2"></TextBox>
+                <TextBlock Text="Email"  Margin="0 5" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                <TextBox Text="{Binding User.Email, UpdateSourceTrigger=PropertyChanged}" Margin="0 2 0 10" Style="{StaticResource TextBoxStyle}"></TextBox>
 
-                <TextBlock Text="Phone Number" FontSize="12" FontWeight="DemiBold" Margin="0 5"></TextBlock>
-                <TextBox Text="{Binding User.PhoneNumber, UpdateSourceTrigger=PropertyChanged}" Margin="0 2"></TextBox>
+                <TextBlock Text="Phone Number" Margin="0 5" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                <TextBox Text="{Binding User.PhoneNumber, UpdateSourceTrigger=PropertyChanged}" Margin="0 2 0 10" Style="{StaticResource TextBoxStyle}"></TextBox>
 
-                <TextBlock Text="Address" FontSize="12" FontWeight="DemiBold" Margin="0 5"></TextBlock>
-                <TextBox Text="{Binding User.Address, UpdateSourceTrigger=PropertyChanged}" Margin="0 2"></TextBox>
+                <TextBlock Text="Address"  Margin="0 5" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                <TextBox Text="{Binding User.Address, UpdateSourceTrigger=PropertyChanged}" Margin="0 2 0 10" Style="{StaticResource TextBoxStyle}"></TextBox>
 
-                <TextBlock Text="Postal Number" FontSize="12" FontWeight="DemiBold" Margin="0 5"></TextBlock>
-                <TextBox Text="{Binding User.PostalNumber, UpdateSourceTrigger=PropertyChanged}" Margin="0 2"></TextBox>
+                <TextBlock Text="Postal Number"  Margin="0 5" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                <TextBox Text="{Binding User.PostalNumber, UpdateSourceTrigger=PropertyChanged}" Margin="0 2 0 10" Style="{StaticResource TextBoxStyle}"></TextBox>
 
-                <TextBlock Text="City" FontSize="12" FontWeight="DemiBold" Margin="0 5"></TextBlock>
-                <TextBox Text="{Binding User.City, UpdateSourceTrigger=PropertyChanged}" Margin="0 2"></TextBox>
+                <TextBlock Text="City"  Margin="0 5" Style="{StaticResource TextBlockStyle}"></TextBlock>
+                <TextBox Text="{Binding User.City, UpdateSourceTrigger=PropertyChanged}" Margin="0 2 0 10" Style="{StaticResource TextBoxStyle}"></TextBox>
             </StackPanel>
 
             <StackPanel Grid.Row="2">
