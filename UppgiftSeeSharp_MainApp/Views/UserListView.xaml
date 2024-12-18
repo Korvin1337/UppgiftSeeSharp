@@ -24,7 +24,7 @@
                     <ColumnDefinition Width="auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Column="0" Text="User List" FontSize="20" FontWeight="Bold"></TextBlock>
+                <TextBlock Text="{Binding Headline, FallbackValue='User List'}" Grid.Column="0" Style="{StaticResource HeadlineText}"></TextBlock>
                 <Button Grid.Column="1"  Command="{Binding GoToAddUserCommand}" Content="&#xE710;" FontFamily="Segoe MDL2 Assets" Padding="7 0" Style="{StaticResource StandardButton}"></Button>
             </Grid>
 

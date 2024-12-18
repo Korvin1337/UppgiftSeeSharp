@@ -9,5 +9,14 @@
         <Setter Property="FontSize" Value="24"></Setter>
     </Style>
     
-    
+    <!-- Headline Text -->
+    <Style x:Key="HeadlineText" TargetType="TextBlock">
+        <Setter Property="TextAlignment" Value="Center"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        <Setter Property="Foreground" Value="#9FABBD"></Setter>
+        <Setter Property="FontSize" Value="24"></Setter>
+        <Setter Property="FontWeight" Value="Medium"></Setter>
+        <Setter Property="Margin" Value="0 0 0 20"></Setter>
+    </Style>
+
 </ResourceDictionary>
